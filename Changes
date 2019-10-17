@@ -3,5 +3,8 @@ Revision history for Music-Duration-Partition
 {{$NEXT}}
     - Improve documentation.
 
+0.0101 2019-10-17 08:56:07
+    - Improve documentation.
+
 0.0100 2019-10-17 08:26:23
     - Mint with Dist:Zilla.
