@@ -49,7 +49,6 @@ sub melody {
 
     for my $i ( 1 .. $max ) {
         my @notes = map { $scale[ int rand @scale ] } 0 .. @$motif - 1;
-#use Data::Dumper;warn(__PACKAGE__,' ',__LINE__," MARK: ",Dumper\@notes);exit;
 
         my @phrase = $i % 2 ? @$motif : shuffle @$motif;
 
