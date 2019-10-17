@@ -27,7 +27,7 @@ use namespace::clean;
 
   my $motif = $mdp->motif;
 
-  my $notes = get_notes($motif); # Imaginary note generator
+  my $notes = get_notes($motif); # Your imaginary note generator
 
   for my $n ( 0 .. @$notes - 1 ) {
     $score->n( $motif->[$n], $notes->[$n] );
