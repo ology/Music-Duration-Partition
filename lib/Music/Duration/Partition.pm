@@ -14,9 +14,26 @@ use namespace::clean;
 
 =head1 SYNOPSIS
 
+  use MIDI::Util;
+
+  my $score = MIDI::Util::setup_score();
+
   use Music::Duration::Partition;
-  my %arguments;
-  my $mdp = Music::Duration::Partition->new(%arguments);
+
+  my $mdp = Music::Duration::Partition->new(
+    size => 8,
+    pool => [qw/ qn en sn /],
+  );
+
+  my $motif = $mdp->motif;
+
+  my $notes = get_notes($motif); # Imaginary note generator
+
+  for my $n ( 0 .. @$notes - 1 ) {
+    $score->n( $motif->[$n], $notes->[$n] );
+  }
+
+  $score->write_score('motif.mid');
 
 =head1 DESCRIPTION
 
@@ -96,12 +113,15 @@ has pool => (
 
 The B<size> minus the smallest B<pool> duration value.
 
+This is a computed attribute.
+
 =cut
 
 has threshold => (
-    is      => 'ro',
-    builder => 1,
-    lazy    => 1,
+    is       => 'ro',
+    builder  => 1,
+    lazy     => 1,
+    init_arg => undef,
 );
 
 sub _build_threshold {
@@ -164,7 +184,7 @@ sub motif {
         next
             if $size > $diff;
         $sum += $size;
-warn(__PACKAGE__,' ',__LINE__," MARK: $name, $size, ",$sum,"\n");
+#warn(__PACKAGE__,' ',__LINE__," MARK: $name, $size, ",$sum,"\n");
         push @$motif, $name
             if $sum <= $self->size;
         last
@@ -178,6 +198,10 @@ warn(__PACKAGE__,' ',__LINE__," MARK: $name, $size, ",$sum,"\n");
 __END__
 
 =head1 SEE ALSO
+
+The F<t/t/01-methods.t> and F<eg/motif> code in this distribution.
+
+L<List::Util>
 
 L<Moo>
 
