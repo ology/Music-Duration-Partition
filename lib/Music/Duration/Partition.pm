@@ -14,10 +14,6 @@ use namespace::clean;
 
 =head1 SYNOPSIS
 
-  use MIDI::Util;
-
-  my $score = MIDI::Util::setup_score();
-
   use Music::Duration::Partition;
 
   my $mdp = Music::Duration::Partition->new(
@@ -28,6 +24,8 @@ use namespace::clean;
   my $motif = $mdp->motif;
 
   my $notes = get_notes($motif); # Your imaginary note generator
+
+  my $score = MIDI::Util::setup_score(); # https://metacpan.org/pod/MIDI::Util
 
   for my $n ( 0 .. @$notes - 1 ) {
     $score->n( $motif->[$n], $notes->[$n] );
