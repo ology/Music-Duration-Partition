@@ -208,7 +208,7 @@ Give ->motif a code reference to select a pool duration instead of "at random."
 
 =head1 SEE ALSO
 
-The F<t/t/01-methods.t> and F<eg/motif> code in this distribution.
+The F<t/01-methods.t> and F<eg/motif> code in this distribution.
 
 L<List::Util>
 
