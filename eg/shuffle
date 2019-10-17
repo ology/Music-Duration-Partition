@@ -34,7 +34,7 @@ sub beat {
 sub melody {
     my $mdp = Music::Duration::Partition->new(
         size => $size,
-#        pool => [qw/ qn en ddsn dsn ten sn tsn /],
+#        pool => [qw/ twn thn tqn ten tsn /],
         pool => [qw/ qn en sn /],
     );
 
