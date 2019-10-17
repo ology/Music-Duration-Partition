@@ -2,7 +2,7 @@ package Music::Duration::Partition;
 
 # ABSTRACT: Partition a musical duration
 
-our $VERSION = '0.0101';
+our $VERSION = '0.0102';
 
 use Moo;
 use strictures 2;
@@ -165,6 +165,14 @@ sub duration {
 
 =head2 motif
 
+  $motif = $mdp->motif;
+
+Generate a rhythmic phrase of the given B<size>.
+
+Currently, this is constructed by selecting a B<pool> duration at
+random, that fits into the size remaining after each application, in a
+loop until the B<size> is met.
+
 =cut
 
 sub motif {
@@ -193,6 +201,10 @@ sub motif {
 
 1;
 __END__
+
+=head1 TO DO
+
+Give ->motif a code reference to select a pool duration instead of "at random."
 
 =head1 SEE ALSO
 
