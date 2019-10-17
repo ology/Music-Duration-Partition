@@ -55,6 +55,5 @@ is sprintf( '%.2f', $mdp->threshold ), 0.33, 'threshold';
 $got = $mdp->motif;
 isa_ok $got, 'ARRAY';
 is_deeply $got, [ ('tqn') x 6 ], 'motif';
-use Data::Dumper;warn(__PACKAGE__,' ',__LINE__," MARK: ",Dumper$got);
 
 done_testing();
