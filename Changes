@@ -1,6 +1,8 @@
 Revision history for Music-Duration-Partition
 
 {{$NEXT}}
+
+0.0103 2019-10-17 10:47:16
     - Add the eg/shuffle program.
     - Clean up documentation.
 
