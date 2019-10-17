@@ -2,7 +2,7 @@ package Music::Duration::Partition;
 
 # ABSTRACT: Partition a musical duration
 
-our $VERSION = '0.0100';
+our $VERSION = '0.0101';
 
 use Moo;
 use strictures 2;
@@ -35,8 +35,9 @@ use namespace::clean;
 
 =head1 DESCRIPTION
 
-C<Music::Duration::Partition> partitions a musical duration into
-smaller durations that equal the original given duration.
+C<Music::Duration::Partition> partitions a musical duration (the
+B<size> attribute) into smaller durations drawn from the B<pool> of
+possible durations.
 
 =head1 ATTRIBUTES
 
@@ -78,9 +79,9 @@ has sizes => (
 
   $size = $mdp->size;
 
-L<MIDI::Simple::Length> value for the duration of a whole note.
+The value of the duration to partition.
 
-Default: C<4>
+Default: C<4> (whole note)
 
 =cut
 
@@ -108,8 +109,6 @@ has pool => (
 =head2 threshold
 
   $threshold = $mdp->threshold;
-
-The B<size> minus the smallest B<pool> duration value.
 
 This is a computed attribute.
 
