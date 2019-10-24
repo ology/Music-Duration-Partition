@@ -40,12 +40,7 @@ sub melody {
 
     my $motif = $mdp->motif;
 
-    my @scale = map { $_ . 5 } get_scale_notes( 'A', 'pminor' );
-    # Transform to MIDI accidentals
-    for ( @scale ) {
-        s/#/s/;
-        s/b/f/;
-    }
+    my @scale = get_scale_MIDI( 'A', 3, 'pminor' );
 
     for my $i ( 1 .. $max ) {
         my @notes = map { $scale[ int rand @scale ] } 0 .. @$motif - 1;
