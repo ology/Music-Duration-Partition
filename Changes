@@ -1,6 +1,9 @@
 Revision history for Music-Duration-Partition
 
 {{$NEXT}}
+    - Enhance eg/shuffle.
+
+0.0302 2019-10-24 10:09:12
     - Improve documentation ever so slightly.
 
 0.0301 2019-10-24 10:02:13
