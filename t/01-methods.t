@@ -47,4 +47,13 @@ $got = $mdp->motif;
 isa_ok $got, 'ARRAY';
 is_deeply $got, [ ('tqn') x 6 ], 'motif';
 
+$mdp = Music::Duration::Partition->new( pool => [qw/ qn tqn /] );
+isa_ok $mdp, 'Music::Duration::Partition';
+
+$mdp->pool_code( sub { return $mdp->pool->[0] } );
+
+$got = $mdp->motif;
+isa_ok $got, 'ARRAY';
+is_deeply $got, [ ('qn') x 4 ], 'motif';
+
 done_testing();
