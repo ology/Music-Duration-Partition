@@ -56,4 +56,10 @@ $got = $mdp->motif;
 isa_ok $got, 'ARRAY';
 is_deeply $got, [ ('qn') x 4 ], 'motif';
 
+$mdp->pool_code( sub { return $mdp->pool->[-1] } );
+
+$got = $mdp->motif;
+isa_ok $got, 'ARRAY';
+is_deeply $got, [ ('tqn') x 6 ], 'motif';
+
 done_testing();
