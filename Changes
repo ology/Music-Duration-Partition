@@ -1,6 +1,9 @@
 Revision history for Music-Duration-Partition
 
 {{$NEXT}}
+    - Improve documentation.
+
+0.0200 2019-10-24 07:11:40
     - Remove the threshold attribute.
     - Add the min_size attribute.
     - Attempt to repair the ->motif loop next and last conditions to satisfy https://rt.cpan.org/Ticket/Display.html?id=130757
