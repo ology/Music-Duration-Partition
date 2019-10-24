@@ -106,6 +106,28 @@ has pool => (
     default => sub { return [ keys %MIDI::Simple::Length ] },
 );
 
+=head2 pool_code
+
+  $name = $mdp->pool_code->();
+  $mdp->pool_code( sub { ... } );
+
+A code reference to select an item from the given duration B<pool>.
+
+Default: Random item of B<pool>
+
+=cut
+
+has pool_code => (
+    is      => 'rw',
+    builder => 1,
+    lazy    => 1,
+);
+
+sub _build_pool_code {
+    my ($self) = @_;
+    return sub { return $self->pool->[ int rand @{ $self->pool } ] };
+};
+
 =head2 min_size
 
   $min_size = $mdp->min_size;
@@ -183,7 +205,7 @@ sub motif {
     my $sum = 0;
 
     while ( $sum < $self->size ) {
-        my $name = $self->pool->[ int rand @{ $self->pool } ];
+        my $name = $self->pool_code->();
         my $size = $self->duration($name);
         my $diff = $self->size - $sum;
         last
