@@ -2,6 +2,7 @@ Revision history for Music-Duration-Partition
 
 {{$NEXT}}
     - Improve documentation.
+    - Add the pool_code attribute.
 
 0.0200 2019-10-24 07:11:40
     - Remove the threshold attribute.
