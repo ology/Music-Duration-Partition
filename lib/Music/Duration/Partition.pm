@@ -2,7 +2,7 @@ package Music::Duration::Partition;
 
 # ABSTRACT: Partition a musical duration
 
-our $VERSION = '0.0300';
+our $VERSION = '0.0301';
 
 use Moo;
 use strictures 2;
@@ -227,11 +227,6 @@ sub motif {
 
 1;
 __END__
-
-=head1 TO DO
-
-Give ->motif a code reference to select a pool duration instead of "at
-random."
 
 =head1 SEE ALSO
 
