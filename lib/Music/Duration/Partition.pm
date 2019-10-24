@@ -2,7 +2,7 @@ package Music::Duration::Partition;
 
 # ABSTRACT: Partition a musical duration
 
-our $VERSION = '0.0103';
+our $VERSION = '0.0200';
 
 use Moo;
 use strictures 2;
@@ -106,27 +106,27 @@ has pool => (
     default => sub { return [ keys %MIDI::Simple::Length ] },
 );
 
-=head2 threshold
+=head2 min_size
 
-  $threshold = $mdp->threshold;
+  $min_size = $mdp->min_size;
 
 This is a computed attribute.
 
 =cut
 
-has threshold => (
+has min_size => (
     is       => 'ro',
     builder  => 1,
     lazy     => 1,
     init_arg => undef,
 );
 
-sub _build_threshold {
+sub _build_min_size {
     my ($self) = @_;
 
     my @sizes = map { $self->duration($_) } @{ $self->pool };
 
-    return ( $self->size - min(@sizes) ) - ( $self->size - 1 );
+    return min(@sizes);
 }
 
 =head1 METHODS
@@ -186,14 +186,16 @@ sub motif {
         my $name = $self->pool->[ int rand @{ $self->pool } ];
         my $size = $self->duration($name);
         my $diff = $self->size - $sum;
+        last
+            if $diff < $self->min_size;
         next
             if $size > $diff;
         $sum += $size;
-#warn(__PACKAGE__,' ',__LINE__," MARK: $name, $size, ",$sum,"\n");
+#warn(__PACKAGE__,' ',__LINE__," MARK: $name, $size, $sum\n");
         push @$motif, $name
             if $sum <= $self->size;
         last
-            if $sum > $self->size - 1 + $self->threshold;
+            if $sum >= $self->size;
     }
 
     return $motif;
