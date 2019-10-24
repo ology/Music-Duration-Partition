@@ -2,7 +2,7 @@ package Music::Duration::Partition;
 
 # ABSTRACT: Partition a musical duration
 
-our $VERSION = '0.0200';
+our $VERSION = '0.0300';
 
 use Moo;
 use strictures 2;
@@ -20,6 +20,8 @@ use namespace::clean;
     size => 8,
     pool => [qw/ qn en sn /],
   );
+
+  $mdp->pool_code( sub { ... } );
 
   my $motif = $mdp->motif;
 
