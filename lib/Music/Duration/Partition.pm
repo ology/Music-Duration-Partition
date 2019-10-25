@@ -218,8 +218,6 @@ sub motif {
 #warn(__PACKAGE__,' ',__LINE__," MARK: $name, $size, $sum\n");
         push @$motif, $name
             if $sum <= $self->size;
-        last
-            if $sum >= $self->size;
     }
 
     return $motif;
