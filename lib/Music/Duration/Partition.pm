@@ -207,9 +207,9 @@ sub motif {
         my $size = $self->duration($name);
         my $diff = $self->size - $sum;
         last
-            if $diff < $self->min_size;
+            if sprintf( '%.4f', $diff ) < sprintf( '%.4f', $self->min_size );
         next
-            if $size > $diff;
+            if sprintf( '%.4f', $size ) > sprintf( '%.4f', $diff );
         $sum += $size;
 #warn(__PACKAGE__,' ',__LINE__," MARK: $name, $size, $sum\n");
         push @$motif, $name
