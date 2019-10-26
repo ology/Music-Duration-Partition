@@ -70,9 +70,7 @@ Default: C<reverse %MIDI::Simple::Length>
 
 has sizes => (
     is      => 'ro',
-    default => sub {
-        return { reverse %MIDI::Simple::Length };
-    },
+    default => sub { return { reverse %MIDI::Simple::Length } },
 );
 
 =head2 size
