@@ -55,7 +55,7 @@ Default: C<%MIDI::Simple::Length>
 
 has names => (
     is      => 'ro',
-    default => sub { return \%MIDI::Simple::Length; },
+    default => sub { return \%MIDI::Simple::Length },
 );
 
 =head2 sizes
