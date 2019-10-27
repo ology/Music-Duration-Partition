@@ -149,6 +149,19 @@ sub _build_min_size {
     return min(@sizes);
 }
 
+=head2 verbose
+
+  $verbose = $mdp->verbose;
+
+Show the progress of the B<motif> method.
+
+=cut
+
+has verbose => (
+    is      => 'ro',
+    default => sub { return 0 },
+);
+
 =head1 METHODS
 
 =head2 new
@@ -216,7 +229,9 @@ sub motif {
             if sprintf( $format, $size ) > sprintf( $format, $diff );
 
         $sum += $size;
-#warn(__PACKAGE__,' ',__LINE__," MARK: $name, $size, $sum\n");
+
+        warn(__PACKAGE__,' ',__LINE__," $name, $size, $sum\n")
+            if $self->verbose;
 
         push @$motif, $name
             if $sum <= $self->size;
