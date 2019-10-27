@@ -29,7 +29,7 @@ use namespace::clean;
 
   my $score = MIDI::Util::setup_score(); # https://metacpan.org/pod/MIDI::Util
 
-  for my $n ( 0 .. @$notes - 1 ) {
+  for my $n ( 0 .. @$motif - 1 ) {
     $score->n( $motif->[$n], $notes->[$n] );
   }
 
@@ -206,12 +206,16 @@ sub motif {
         my $name = $self->pool_code->();
         my $size = $self->duration($name);
         my $diff = $self->size - $sum;
+
         last
             if sprintf( '%.4f', $diff ) < sprintf( '%.4f', $self->min_size );
+
         next
             if sprintf( '%.4f', $size ) > sprintf( '%.4f', $diff );
+
         $sum += $size;
 #warn(__PACKAGE__,' ',__LINE__," MARK: $name, $size, $sum\n");
+
         push @$motif, $name
             if $sum <= $self->size;
     }
