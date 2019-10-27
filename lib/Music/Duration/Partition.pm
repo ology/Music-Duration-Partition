@@ -200,6 +200,8 @@ sub motif {
 
     my $motif = [];
 
+    my $format = '%.4f';
+
     my $sum = 0;
 
     while ( $sum < $self->size ) {
@@ -208,10 +210,10 @@ sub motif {
         my $diff = $self->size - $sum;
 
         last
-            if sprintf( '%.4f', $diff ) < sprintf( '%.4f', $self->min_size );
+            if sprintf( $format, $diff ) < sprintf( $format, $self->min_size );
 
         next
-            if sprintf( '%.4f', $size ) > sprintf( '%.4f', $diff );
+            if sprintf( $format, $size ) > sprintf( $format, $diff );
 
         $sum += $size;
 #warn(__PACKAGE__,' ',__LINE__," MARK: $name, $size, $sum\n");
