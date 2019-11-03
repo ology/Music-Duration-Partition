@@ -37,9 +37,8 @@ use namespace::clean;
 
 =head1 DESCRIPTION
 
-C<Music::Duration::Partition> partitions a musical duration (the
-B<size> attribute) into smaller durations drawn from the B<pool> of
-possible durations.
+C<Music::Duration::Partition> partitions a musical duration, B<size>,
+into smaller durations drawn from the B<pool> of possible durations.
 
 =head1 ATTRIBUTES
 
