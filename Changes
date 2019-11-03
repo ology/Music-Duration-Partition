@@ -2,6 +2,7 @@ Revision history for Music-Duration-Partition
 
 {{$NEXT}}
     - Clean up code.
+    - Add eg/figured-bass.
 
 0.0303 2019-10-26 12:46:33
     - Enhance eg/shuffle.
