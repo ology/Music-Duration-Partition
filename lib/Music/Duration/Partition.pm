@@ -245,8 +245,7 @@ __END__
 
 =head1 SEE ALSO
 
-The F<t/01-methods.t>, F<eg/motif> and F<eg/shuffle> code in this
-distribution.
+The F<t/01-methods.t> and F<eg/*> code in this distribution.
 
 L<List::Util>
 
