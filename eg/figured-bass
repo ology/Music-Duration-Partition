@@ -2,7 +2,6 @@
 use strict;
 use warnings;
 
-use List::Util qw/ shuffle /;
 use lib '/Users/gene/sandbox/MIDI-Drummer-Tiny/lib';
 use MIDI::Drummer::Tiny;
 use lib '/Users/gene/sandbox/MIDI-Util/lib';
