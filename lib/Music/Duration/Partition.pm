@@ -14,7 +14,7 @@ use namespace::clean;
 
 =head1 SYNOPSIS
 
-  use MIDI::Util;
+  use MIDI::Simple;
   use Music::Scales;
   use Music::Duration::Partition;
 
@@ -29,7 +29,7 @@ use namespace::clean;
 
   my @scale = get_scale_MIDI('C', 4, 'major');
 
-  my $score = MIDI::Util::setup_score();
+  my $score = MIDI::Simple->new_score();
 
   for my $n ( 0 .. 31 ) {
     $score->n( $motif->[$n % @$motif], $scale[int rand @scale] );
