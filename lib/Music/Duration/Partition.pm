@@ -97,7 +97,7 @@ has size => (
 The list of possible note duration names to use in constructing a
 motif.
 
-Default: C<[ keys %MIDI::Simple::Length ]>
+Default: C<[ keys %MIDI::Simple::Length ]> (dwn, wn, dhn, hn, dqn, qn, ...)
 
 =cut
 
