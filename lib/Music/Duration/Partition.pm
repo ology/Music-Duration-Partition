@@ -45,9 +45,9 @@ durations.
 
 =head1 ATTRIBUTES
 
-=head2 names
+=head2 durations
 
-  $names = $mdp->names;
+  $durations = $mdp->durations;
 
 A hash reference of C<%MIDI::Simple::Length> (keyed by duration name).
 
@@ -55,7 +55,7 @@ Default: C<%MIDI::Simple::Length>
 
 =cut
 
-has names => (
+has durations => (
     is      => 'ro',
     default => sub { return \%MIDI::Simple::Length },
 );
@@ -207,7 +207,7 @@ sub motif {
 
 sub _duration {
     my ( $self, $name ) = @_;
-    return $self->names->{$name};
+    return $self->durations->{$name};
 }
 
 1;
