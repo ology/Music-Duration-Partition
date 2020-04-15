@@ -29,10 +29,10 @@ use namespace::clean;
 
   my @scale = get_scale_MIDI('C', 4, 'major');
 
-  my $score = MIDI::Util::setup_score(); # https://metacpan.org/pod/MIDI::Util
+  my $score = MIDI::Util::setup_score();
 
-  for my $n ( 0 .. @$motif - 1 ) {
-    $score->n( $motif->[$n], $scale[int rand @scale] );
+  for my $n ( 0 .. 31 ) {
+    $score->n( $motif->[$n % @$motif], $scale[int rand @scale] );
   }
 
   $score->write_score('motif.mid');
