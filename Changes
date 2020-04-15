@@ -1,6 +1,9 @@
 Revision history for Music-Duration-Partition
 
 {{$NEXT}}
+    - Make the ->durations method private to the module.
+
+0.0307 2020-04-14 20:11:44
     - Remove the unused ->sizes method.
 
 0.0306 2020-04-14 19:55:55

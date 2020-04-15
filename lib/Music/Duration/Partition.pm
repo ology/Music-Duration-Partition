@@ -2,7 +2,7 @@ package Music::Duration::Partition;
 
 # ABSTRACT: Partition a musical duration
 
-our $VERSION = '0.0307';
+our $VERSION = '0.0308';
 
 use Moo;
 use strictures 2;
@@ -133,7 +133,7 @@ has min_size => (
 sub _build_min_size {
     my ($self) = @_;
 
-    my @sizes = map { $self->duration($_) } @{ $self->pool };
+    my @sizes = map { $self->_duration($_) } @{ $self->pool };
 
     return min(@sizes);
 }
@@ -158,19 +158,6 @@ has verbose => (
   $mdp = Music::Duration::Partition->new(%arguments);
 
 Create a new C<Music::Duration::Partition> object.
-
-=head2 duration
-
-  $duration = $mdp->duration($duration_name);
-
-Return the value of the given duration name.
-
-=cut
-
-sub duration {
-    my ( $self, $name ) = @_;
-    return $self->names->{$name};
-}
 
 =head2 motif
 
@@ -197,7 +184,7 @@ sub motif {
 
     while ( $sum < $self->size ) {
         my $name = $self->pool_code->();
-        my $size = $self->duration($name);
+        my $size = $self->_duration($name);
         my $diff = $self->size - $sum;
 
         last
@@ -216,6 +203,11 @@ sub motif {
     }
 
     return $motif;
+}
+
+sub _duration {
+    my ( $self, $name ) = @_;
+    return $self->names->{$name};
 }
 
 1;
