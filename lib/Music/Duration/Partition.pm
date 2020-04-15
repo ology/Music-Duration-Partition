@@ -202,6 +202,8 @@ sub duration {
 
 Generate a rhythmic phrase of the given B<size>.
 
+This method returns a different rhythmic motif each time it is called.
+
 The default B<pool_code> used constructs this by selecting a B<pool>
 duration at random, that fits into the size remaining after each
 application, in a loop until the B<size> is met.
