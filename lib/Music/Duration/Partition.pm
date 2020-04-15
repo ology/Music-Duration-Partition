@@ -175,7 +175,7 @@ Create a new C<Music::Duration::Partition> object.
 
 =head2 duration
 
-  $duration = $mdp->duration($name);
+  $duration = $mdp->duration($duration_name);
 
 Return the value of the given duration name.
 
