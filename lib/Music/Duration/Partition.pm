@@ -88,7 +88,7 @@ Default: C<[ keys %MIDI::Simple::Length ]> (wn, hn, qn, ...)
 
 has pool => (
     is      => 'ro',
-    isa     => sub { die 'Not a non-empty ArrayRef' unless ref( $_[0] ) eq 'ARRAY' && @{ $_[0] } > 0 },
+    isa     => sub { die 'Empty pool not allowed' unless ref( $_[0] ) eq 'ARRAY' && @{ $_[0] } > 0 },
     default => sub { return [ keys %MIDI::Simple::Length ] },
 );
 

@@ -10,7 +10,7 @@ use MIDI::Simple;
 use_ok 'Music::Duration::Partition';
 
 throws_ok { Music::Duration::Partition->new( pool => [] ) }
-    qr/Not a non-empty ArrayRef/, 'empty pool not allowed';
+    qr/Empty pool not allowed/, 'empty pool not allowed';
 
 my $mdp = Music::Duration::Partition->new;
 isa_ok $mdp, 'Music::Duration::Partition';

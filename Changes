@@ -1,6 +1,7 @@
 Revision history for Music-Duration-Partition
 
 {{$NEXT}}
+    - Fix empty pool error message.
 
 0.0308 2020-04-14 20:24:12
     - Make the ->durations method private to the module.
