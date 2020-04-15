@@ -15,8 +15,8 @@ use namespace::clean;
 =head1 SYNOPSIS
 
   use MIDI::Simple;
-  use Music::Scales;
   use Music::Duration::Partition;
+  use Music::Scales;
 
   my $mdp = Music::Duration::Partition->new(
     size => 8,
