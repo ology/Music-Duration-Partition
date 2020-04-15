@@ -112,7 +112,8 @@ has pool => (
   $name = $mdp->pool_code->();
   $mdp->pool_code( sub { ... } );
 
-A code reference to select an item from the given duration B<pool>.
+A code reference used to select an item from the given duration
+B<pool>.
 
 Default: Random item of B<pool>
 
