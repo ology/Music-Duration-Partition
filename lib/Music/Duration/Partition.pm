@@ -2,7 +2,7 @@ package Music::Duration::Partition;
 
 # ABSTRACT: Partition a musical duration
 
-our $VERSION = '0.0305';
+our $VERSION = '0.0306';
 
 use Moo;
 use strictures 2;
@@ -14,6 +14,8 @@ use namespace::clean;
 
 =head1 SYNOPSIS
 
+  use MIDI::Util;
+  use Music::Scales;
   use Music::Duration::Partition;
 
   my $mdp = Music::Duration::Partition->new(
@@ -25,20 +27,21 @@ use namespace::clean;
 
   my $motif = $mdp->motif;
 
-  my $notes = get_notes($motif); # Your imaginary note generator
+  my @scale = get_scale_MIDI('C', 4, 'major');
 
   my $score = MIDI::Util::setup_score(); # https://metacpan.org/pod/MIDI::Util
 
   for my $n ( 0 .. @$motif - 1 ) {
-    $score->n( $motif->[$n], $notes->[$n] );
+    $score->n( $motif->[$n], $scale[int rand @scale] );
   }
 
   $score->write_score('motif.mid');
 
 =head1 DESCRIPTION
 
-C<Music::Duration::Partition> partitions a musical duration, B<size>,
-into smaller durations drawn from the B<pool> of possible durations.
+C<Music::Duration::Partition> partitions a musical duration, given by
+the B<size>, into smaller durations drawn from the B<pool> of possible
+durations.
 
 =head1 ATTRIBUTES
 
