@@ -27,7 +27,7 @@ use namespace::clean;
 
   my $motif = $mdp->motif;
 
-  my @scale = get_scale_MIDI('C', 4, 'major');
+  my @scale = get_scale_MIDI( 'C', 4, 'major' );
 
   my $score = MIDI::Simple->new_score();
 
