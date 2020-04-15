@@ -81,7 +81,7 @@ has sizes => (
 
 The value of the duration to partition.
 
-Default: C<4> (whole note)
+Default: C<4> (4 quarter notes = 1 whole note)
 
 =cut
 
