@@ -170,19 +170,6 @@ has verbose => (
 
 Create a new C<Music::Duration::Partition> object.
 
-=head2 name
-
-  $name = $mdp->name($duration);
-
-Return the duration name of the given value.
-
-=cut
-
-sub name {
-    my ( $self, $size ) = @_;
-    return $self->sizes->{$size};
-}
-
 =head2 duration
 
   $duration = $mdp->duration($name);
