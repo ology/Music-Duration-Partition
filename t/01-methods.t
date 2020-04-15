@@ -16,7 +16,6 @@ my $mdp = Music::Duration::Partition->new;
 isa_ok $mdp, 'Music::Duration::Partition';
 
 ok ref($mdp->names) eq 'HASH', 'names';
-ok ref($mdp->sizes) eq 'HASH', 'sizes';
 is $mdp->size, 4, 'size';
 is_deeply $mdp->pool, [ keys %MIDI::Simple::Length ], 'pool';
 

@@ -1,6 +1,9 @@
 Revision history for Music-Duration-Partition
 
 {{$NEXT}}
+    - Remove the unused ->sizes method.
+
+0.0306 2020-04-14 19:55:55
     - Improve documentation.
     - Remove the unused ->name method.
 

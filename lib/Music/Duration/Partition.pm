@@ -60,21 +60,6 @@ has names => (
     default => sub { return \%MIDI::Simple::Length },
 );
 
-=head2 sizes
-
-  $sizes = $mdp->sizes;
-
-A hash reference of C<%MIDI::Simple::Length> (keyed by duration value).
-
-Default: C<reverse %MIDI::Simple::Length>
-
-=cut
-
-has sizes => (
-    is      => 'ro',
-    default => sub { return { reverse %MIDI::Simple::Length } },
-);
-
 =head2 size
 
   $size = $mdp->size;
