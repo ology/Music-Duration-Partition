@@ -31,7 +31,7 @@ use namespace::clean;
 
   my $score = MIDI::Simple->new_score();
 
-  for my $n ( 0 .. 31 ) {
+  for my $n ( 0 .. 31 ) { # 4 loops over the motif
     $score->n( $motif->[$n % @$motif], $scale[int rand @scale] );
   }
 
