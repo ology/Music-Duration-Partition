@@ -177,7 +177,7 @@ Create a new C<Music::Duration::Partition> object.
 
   $duration = $mdp->duration($name);
 
-Return the duration value of the given name.
+Return the value of the given duration name.
 
 =cut
 
