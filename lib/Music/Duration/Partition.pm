@@ -133,7 +133,7 @@ sub _build_pool_code {
 
   $min_size = $mdp->min_size;
 
-This is a computed attribute.
+Smallest pool duration.  This is a computed attribute.
 
 =cut
 
