@@ -29,7 +29,7 @@ use namespace::clean;
 
   my @scale = get_scale_MIDI( 'C', 4, 'major' );
 
-  my $score = MIDI::Simple->new_score();
+  my $score = MIDI::Simple->new_score;
 
   for my $n ( 0 .. 31 ) { # 4 loops over the motif
     $score->n( $motif->[$n % @$motif], $scale[int rand @scale] );
