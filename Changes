@@ -1,6 +1,8 @@
 Revision history for Music-Duration-Partition
 
 {{$NEXT}}
+
+0.0400 2020-04-18 14:02:09
     - Allow MIDI durations of the form 'd###' to occupy the pool.
 
 0.0309 2020-04-14 21:25:15
