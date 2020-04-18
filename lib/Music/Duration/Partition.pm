@@ -37,7 +37,7 @@ use namespace::clean;
 
   $score->write_score('motif.mid');
 
-  # The pool may also be MIDI durations
+  # The pool may also be made of MIDI durations
   my $mdp = Music::Duration::Partition->new(
     size => 100,
     pool => [qw/ d50 d25 /],
@@ -85,10 +85,13 @@ has size => (
 
   $pool = $mdp->pool;
 
-The list of possible note duration names to use in constructing a
-motif.
+The list of possible note durations to use in constructing a motif.
 
 Default: C<[ keys %MIDI::Simple::Length ]> (wn, hn, qn, ...)
+
+This can be B<either> a list of duration names, as in the default
+example, or duration values, specified with a preceding 'd'.  A
+mixture of both is not well defined. YMMV
 
 =cut
 
