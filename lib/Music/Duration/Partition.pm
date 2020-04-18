@@ -2,7 +2,7 @@ package Music::Duration::Partition;
 
 # ABSTRACT: Partition a musical duration
 
-our $VERSION = '0.0309';
+our $VERSION = '0.0400';
 
 use Moo;
 use strictures 2;
@@ -36,6 +36,12 @@ use namespace::clean;
   }
 
   $score->write_score('motif.mid');
+
+  # The pool may also be MIDI durations
+  my $mdp = Music::Duration::Partition->new(
+    size => 100,
+    pool => [qw/ d50 d25 /],
+  );
 
 =head1 DESCRIPTION
 
@@ -165,7 +171,8 @@ Create a new C<Music::Duration::Partition> object.
 
 Generate a rhythmic phrase of the given B<size>.
 
-This method returns a different rhythmic motif each time it is called.
+This method returns a possibly different rhythmic motif each time it
+is called.
 
 The default B<pool_code> used constructs this by selecting a B<pool>
 duration at random, that fits into the size remaining after each
@@ -207,7 +214,14 @@ sub motif {
 
 sub _duration {
     my ( $self, $name ) = @_;
-    return $self->durations->{$name};
+    my $dura;
+    if ($name =~ /^d(\d+)$/) {
+        $dura = $1;
+    }
+    else {
+        $dura = $self->durations->{$name};
+    }
+    return $dura;
 }
 
 1;

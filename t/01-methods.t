@@ -62,4 +62,11 @@ $got = $mdp->motif;
 isa_ok $got, 'ARRAY';
 is_deeply $got, [ ('tqn') x 6 ], 'motif';
 
+$mdp = Music::Duration::Partition->new( size => 100, pool => [qw/ d50 /] );
+isa_ok $mdp, 'Music::Duration::Partition';
+
+$got = $mdp->motif;
+isa_ok $got, 'ARRAY';
+is_deeply $got, ['d50', 'd50'], 'motif';
+
 done_testing();

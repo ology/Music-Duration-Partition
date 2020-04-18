@@ -1,6 +1,9 @@
 Revision history for Music-Duration-Partition
 
 {{$NEXT}}
+    - Allow MIDI durations of the form 'd###' to occupy the pool.
+
+0.0309 2020-04-14 21:25:15
     - Fix empty pool error message.
     - Improve the syntax of the eg/* programs.
     - Correct the 'durations' attribute name.
