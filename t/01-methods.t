@@ -77,7 +77,7 @@ isa_ok $mdp, 'Music::Duration::Partition';
 
 $got = $mdp->motif;
 isa_ok $got, 'ARRAY';
-is_deeply $got, ['hn', 'hn'], 'motif';
+is_deeply $got, [qw/ hn hn /], 'motif';
 
 $mdp = Music::Duration::Partition->new(
     pool    => [qw/ hn qn /],
