@@ -130,7 +130,7 @@ sub _build__mrd {
 
 =head2 pool_code
 
-  $name = $mdp->pool_code->();
+  $code = $mdp->pool_code->();
   $mdp->pool_code( sub { ... } );
 
 A code reference used to select an item from the given duration
