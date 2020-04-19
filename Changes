@@ -2,6 +2,7 @@ Revision history for Music-Duration-Partition
 
 {{$NEXT}}
     - Improve documentation.
+    - Don't document the min_size attribute.
 
 0.0400 2020-04-18 14:02:09
     - Allow MIDI durations of the form 'd###' to occupy the pool.
