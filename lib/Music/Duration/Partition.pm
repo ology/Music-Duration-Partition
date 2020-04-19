@@ -234,13 +234,16 @@ sub motif {
 
 sub _duration {
     my ( $self, $name ) = @_;
+
     my $dura;
+
     if ($name =~ /^d(\d+)$/) {
         $dura = $1;
     }
     else {
         $dura = $self->durations->{$name};
     }
+
     return $dura;
 }
 
