@@ -104,10 +104,9 @@ has pool => (
 );
 
 has _min_size => (
-    is       => 'ro',
-    builder  => 1,
-    lazy     => 1,
-    init_arg => undef,
+    is      => 'ro',
+    builder => 1,
+    lazy    => 1,
 );
 
 sub _build__min_size {
@@ -116,6 +115,17 @@ sub _build__min_size {
     my @sizes = map { $self->_duration($_) } @{ $self->pool };
 
     return min(@sizes);
+}
+
+has _mrd => (
+    is      => 'ro',
+    builder => 1,
+    lazy    => 1,
+);
+
+sub _build__mrd {
+    my ($self) = @_;
+    return Math::Random::Discrete->new($self->weights, $self->pool);
 }
 
 =head2 pool_code
@@ -138,8 +148,7 @@ has pool_code => (
 
 sub _build_pool_code {
     my ($self) = @_;
-    my $choice = Math::Random::Discrete->new($self->weights, $self->pool);
-    return sub { return $choice->rand };
+    return sub { return $self->_mrd->rand };
 };
 
 =head2 weights
