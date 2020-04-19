@@ -252,7 +252,7 @@ __END__
 
 =head1 SEE ALSO
 
-The F<t/01-methods.t> and F<eg/*> code in this distribution.
+The F<eg/*> and F<t/01-methods.t> programs in this distribution.
 
 L<List::Util>
 
