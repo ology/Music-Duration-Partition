@@ -126,7 +126,7 @@ sub _build__min_size {
 A code reference used to select an item from the given duration
 B<pool>.
 
-Default: Random item of B<pool>
+Default: Random item from B<pool>
 
 =cut
 
