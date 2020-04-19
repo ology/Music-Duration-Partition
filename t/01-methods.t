@@ -23,28 +23,24 @@ $mdp = Music::Duration::Partition->new( pool => [qw/ wn /] );
 isa_ok $mdp, 'Music::Duration::Partition';
 
 my $got = $mdp->motif;
-isa_ok $got, 'ARRAY';
 is_deeply $got, ['wn'], 'motif';
 
 $mdp = Music::Duration::Partition->new( size => 8, pool => [qw/ wn /] );
 isa_ok $mdp, 'Music::Duration::Partition';
 
 $got = $mdp->motif;
-isa_ok $got, 'ARRAY';
 is_deeply $got, [qw/ wn wn /], 'motif';
 
 $mdp = Music::Duration::Partition->new( pool => [qw/ qn /] );
 isa_ok $mdp, 'Music::Duration::Partition';
 
 $got = $mdp->motif;
-isa_ok $got, 'ARRAY';
 is_deeply $got, [ ('qn') x 4 ], 'motif';
 
 $mdp = Music::Duration::Partition->new( pool => [qw/ tqn /] );
 isa_ok $mdp, 'Music::Duration::Partition';
 
 $got = $mdp->motif;
-isa_ok $got, 'ARRAY';
 is_deeply $got, [ ('tqn') x 6 ], 'motif';
 
 $mdp = Music::Duration::Partition->new( pool => [qw/ qn tqn /] );
@@ -53,20 +49,17 @@ isa_ok $mdp, 'Music::Duration::Partition';
 $mdp->pool_code( sub { return $mdp->pool->[0] } );
 
 $got = $mdp->motif;
-isa_ok $got, 'ARRAY';
 is_deeply $got, [ ('qn') x 4 ], 'motif';
 
 $mdp->pool_code( sub { return $mdp->pool->[-1] } );
 
 $got = $mdp->motif;
-isa_ok $got, 'ARRAY';
 is_deeply $got, [ ('tqn') x 6 ], 'motif';
 
 $mdp = Music::Duration::Partition->new( size => 100, pool => [qw/ d50 /] );
 isa_ok $mdp, 'Music::Duration::Partition';
 
 $got = $mdp->motif;
-isa_ok $got, 'ARRAY';
 is_deeply $got, [qw/ d50 d50 /], 'motif';
 
 $mdp = Music::Duration::Partition->new(
@@ -76,7 +69,6 @@ $mdp = Music::Duration::Partition->new(
 isa_ok $mdp, 'Music::Duration::Partition';
 
 $got = $mdp->motif;
-isa_ok $got, 'ARRAY';
 is_deeply $got, [qw/ hn hn /], 'motif';
 
 $mdp = Music::Duration::Partition->new(
@@ -86,7 +78,6 @@ $mdp = Music::Duration::Partition->new(
 isa_ok $mdp, 'Music::Duration::Partition';
 
 $got = $mdp->motif;
-isa_ok $got, 'ARRAY';
 is_deeply $got, [qw/ qn qn qn qn /], 'motif';
 
 done_testing();
