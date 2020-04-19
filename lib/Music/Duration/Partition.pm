@@ -161,7 +161,7 @@ has weights => (
 sub _build_weights {
     my ($self) = @_;
     # Equal probability for all pool members
-    return [ map { 1 } @{ $self->pool } ];
+    return [ (1) x @{ $self->pool } ];
 }
 
 =head2 verbose
