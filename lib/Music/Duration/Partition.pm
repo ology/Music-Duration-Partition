@@ -7,6 +7,7 @@ our $VERSION = '0.0401';
 use Moo;
 use strictures 2;
 
+use Math::Random::Discrete;
 use MIDI::Simple;
 use List::Util qw/ min /;
 
@@ -19,8 +20,9 @@ use namespace::clean;
   use Music::Scales;
 
   my $mdp = Music::Duration::Partition->new(
-    size => 8,
-    pool => [qw/ qn en sn /],
+    size    => 8,
+    pool    => [qw/ qn en sn /],
+    weights => [ 0.2, 0.3, 0.5 ],
   );
 
   $mdp->pool_code( sub { ... } ); # Optional
@@ -101,6 +103,21 @@ has pool => (
     default => sub { return [ keys %MIDI::Simple::Length ] },
 );
 
+has _min_size => (
+    is       => 'ro',
+    builder  => 1,
+    lazy     => 1,
+    init_arg => undef,
+);
+
+sub _build__min_size {
+    my ($self) = @_;
+
+    my @sizes = map { $self->_duration($_) } @{ $self->pool };
+
+    return min(@sizes);
+}
+
 =head2 pool_code
 
   $name = $mdp->pool_code->();
@@ -121,22 +138,30 @@ has pool_code => (
 
 sub _build_pool_code {
     my ($self) = @_;
-    return sub { return $self->pool->[ int rand @{ $self->pool } ] };
+    my $choice = Math::Random::Discrete->new($self->weights, $self->pool);
+    return sub { return $choice->rand };
 };
 
-has _min_size => (
-    is       => 'ro',
-    builder  => 1,
-    lazy     => 1,
-    init_arg => undef,
+=head2 weights
+
+  $weights = $mdp->weights;
+
+Specification of the frequency of pool selection.
+
+Default: Equal probability for each pool entry
+
+=cut
+
+has weights => (
+    is      => 'ro',
+    builder => 1,
+    lazy    => 1,
 );
 
-sub _build__min_size {
+sub _build_weights {
     my ($self) = @_;
-
-    my @sizes = map { $self->_duration($_) } @{ $self->pool };
-
-    return min(@sizes);
+    # Equal probability for all pool members
+    return [ map { 1 } @{ $self->pool } ];
 }
 
 =head2 verbose
