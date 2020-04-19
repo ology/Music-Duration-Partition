@@ -124,18 +124,14 @@ sub _build_pool_code {
     return sub { return $self->pool->[ int rand @{ $self->pool } ] };
 };
 
-=for Pod::Coverage min_size
-
-=cut
-
-has min_size => (
+has _min_size => (
     is       => 'ro',
     builder  => 1,
     lazy     => 1,
     init_arg => undef,
 );
 
-sub _build_min_size {
+sub _build__min_size {
     my ($self) = @_;
 
     my @sizes = map { $self->_duration($_) } @{ $self->pool };
@@ -194,7 +190,7 @@ sub motif {
         my $diff = $self->size - $sum;
 
         last
-            if sprintf( $format, $diff ) < sprintf( $format, $self->min_size );
+            if sprintf( $format, $diff ) < sprintf( $format, $self->_min_size );
 
         next
             if sprintf( $format, $size ) > sprintf( $format, $diff );
