@@ -124,11 +124,7 @@ sub _build_pool_code {
     return sub { return $self->pool->[ int rand @{ $self->pool } ] };
 };
 
-=head2 min_size
-
-  $min_size = $mdp->min_size;
-
-Smallest B<pool> duration.  This is a computed attribute.
+=for Pod::Coverage min_size
 
 =cut
 
