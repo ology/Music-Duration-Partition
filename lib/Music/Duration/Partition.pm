@@ -253,8 +253,10 @@ The F<t/01-methods.t> and F<eg/*> code in this distribution.
 
 L<List::Util>
 
-L<Moo>
+L<Math::Random::Discrete>
 
 L<MIDI::Simple>
+
+L<Moo>
 
 =cut
