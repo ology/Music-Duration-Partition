@@ -2,7 +2,7 @@ package Music::Duration::Partition;
 
 # ABSTRACT: Partition a musical duration
 
-our $VERSION = '0.0500';
+our $VERSION = '0.0501';
 
 use Moo;
 use strictures 2;
