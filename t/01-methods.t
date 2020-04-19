@@ -71,7 +71,7 @@ is_deeply $got, ['d50', 'd50'], 'motif';
 
 $mdp = Music::Duration::Partition->new(
     pool    => [qw/ hn qn /],
-    weights => [ 100, 0 ],
+    weights => [ 1, 0 ],
 );
 isa_ok $mdp, 'Music::Duration::Partition';
 
@@ -81,7 +81,7 @@ is_deeply $got, ['hn', 'hn'], 'motif';
 
 $mdp = Music::Duration::Partition->new(
     pool    => [qw/ hn qn /],
-    weights => [ 0, 100 ],
+    weights => [ 0, 1 ],
 );
 isa_ok $mdp, 'Music::Duration::Partition';
 
