@@ -56,7 +56,7 @@ $mdp->pool_code( sub { return $mdp->pool->[-1] } );
 $got = $mdp->motif;
 is_deeply $got, [ ('tqn') x 6 ], 'motif';
 
-$mdp = Music::Duration::Partition->new( size => 100, pool => [qw/ d50 /] );
+$mdp = Music::Duration::Partition->new( size => 100, pool => ['d50'] );
 isa_ok $mdp, 'Music::Duration::Partition';
 
 $got = $mdp->motif;
