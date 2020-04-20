@@ -44,12 +44,12 @@ is_deeply $got, [ ('tqn') x 6 ], 'motif';
 $mdp = Music::Duration::Partition->new( pool => [qw/ qn tqn /] );
 isa_ok $mdp, 'Music::Duration::Partition';
 
-$mdp->pool_code( sub { return $mdp->pool->[0] } );
+$mdp->pool_select( sub { return $mdp->pool->[0] } );
 
 $got = $mdp->motif;
 is_deeply $got, [ ('qn') x 4 ], 'motif';
 
-$mdp->pool_code( sub { return $mdp->pool->[-1] } );
+$mdp->pool_select( sub { return $mdp->pool->[-1] } );
 
 $got = $mdp->motif;
 is_deeply $got, [ ('tqn') x 6 ], 'motif';

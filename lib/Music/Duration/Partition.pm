@@ -25,7 +25,7 @@ use namespace::clean;
     weights => [ 0.2, 0.3, 0.5 ],
   );
 
-  $mdp->pool_code( sub { ... } ); # Optional
+  $mdp->pool_select( sub { ... } ); # Optional
 
   my $motif = $mdp->motif;
 
@@ -128,10 +128,10 @@ sub _build__mrd {
     return Math::Random::Discrete->new($self->weights, $self->pool);
 }
 
-=head2 pool_code
+=head2 pool_select
 
-  $code = $mdp->pool_code->();
-  $mdp->pool_code( sub { ... } );
+  $code = $mdp->pool_select->();
+  $mdp->pool_select( sub { ... } );
 
 A code reference used to select an item from the given duration
 B<pool>.
@@ -140,13 +140,13 @@ Default: Random item from B<pool>
 
 =cut
 
-has pool_code => (
+has pool_select => (
     is      => 'rw',
     builder => 1,
     lazy    => 1,
 );
 
-sub _build_pool_code {
+sub _build_pool_select {
     my ($self) = @_;
     return sub { return $self->_mrd->rand };
 };
@@ -203,7 +203,7 @@ Generate a rhythmic phrase of the given B<size>.
 This method returns a possibly different rhythmic motif each time it
 is called.
 
-The default B<pool_code> used constructs this by selecting a B<pool>
+The default B<pool_select> used constructs this by selecting a B<pool>
 duration at random, that fits into the size remaining after each
 application, in a loop until the B<size> is met.
 
@@ -219,7 +219,7 @@ sub motif {
     my $sum = 0;
 
     while ( $sum < $self->size ) {
-        my $name = $self->pool_code->();
+        my $name = $self->pool_select->();
         my $size = $self->_duration($name);
         my $diff = $self->size - $sum;
 
