@@ -158,6 +158,8 @@ sub _build_pool_select {
 
 Specification of the frequency of pool item selection.
 
+The number of weights must equal number of pool entries.
+
 Default: Equal probability for each pool entry
 
 =cut
