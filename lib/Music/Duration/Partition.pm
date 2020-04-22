@@ -1,6 +1,6 @@
 package Music::Duration::Partition;
 
-# ABSTRACT: Partition a musical duration
+# ABSTRACT: Partition a musical duration into rhythmic phrases
 
 our $VERSION = '0.0502';
 
@@ -47,9 +47,9 @@ use namespace::clean;
 
 =head1 DESCRIPTION
 
-C<Music::Duration::Partition> partitions a musical duration, given by
-the B<size>, into smaller durations drawn from the B<pool> of possible
-durations.
+C<Music::Duration::Partition> partitions a musical duration into
+rhythmic phrases, given by the B<size>, into smaller durations drawn
+from the B<pool> of possible durations.
 
 =head1 ATTRIBUTES
 
@@ -72,9 +72,9 @@ has durations => (
 
   $size = $mdp->size;
 
-The value of the duration to partition.
+The value, in quarter notes, of the duration to partition.
 
-Default: C<4> (4 quarter notes = 1 whole note)
+Default: C<4>
 
 =cut
 
@@ -87,7 +87,8 @@ has size => (
 
   $pool = $mdp->pool;
 
-The list of possible note durations to use in constructing a motif.
+The list of possible note durations to use in constructing a rhythmic
+motif.
 
 Default: C<[ keys %MIDI::Simple::Length ]> (wn, hn, qn, ...)
 
@@ -155,7 +156,7 @@ sub _build_pool_select {
 
   $weights = $mdp->weights;
 
-Specification of the frequency of pool selection.
+Specification of the frequency of pool item selection.
 
 Default: Equal probability for each pool entry
 
