@@ -57,9 +57,9 @@ from the B<pool> of possibly weighted durations.
 
   $durations = $mdp->durations;
 
-A hash reference of C<%MIDI::Simple::Length> (keyed by duration name).
+A hash reference of duration lengths (keyed by duration name).
 
-Default: C<%MIDI::Simple::Length>
+Default: C<\%MIDI::Simple::Length>
 
 =cut
 
