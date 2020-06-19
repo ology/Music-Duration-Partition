@@ -30,6 +30,12 @@ sub pulse {
 }
 
 sub beat {
+    my $mdp = Music::Duration::Partition->new(
+        size    => 4,
+        pool    => [qw(qn en sn)],
+        weights => [5, 10, 5],
+    );
+
     for my $n (1 .. $max) {
         $d->note(
             $d->quarter,
@@ -37,11 +43,6 @@ sub beat {
             $_ % 2 ? $d->kick : $d->snare
         ) for 1 .. 4;
 
-        my $mdp = Music::Duration::Partition->new(
-            size    => 4,
-            pool    => [qw(qn en sn)],
-            weights => [5, 10, 5],
-        );
         my $motif = $mdp->motif;
 
         my $patch = $d->snare;
