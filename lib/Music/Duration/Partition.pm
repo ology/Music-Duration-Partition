@@ -158,7 +158,8 @@ sub _build_pool_select {
 
 Specification of the frequency of pool item selection.
 
-The number of weights must equal number of pool entries.
+The number of weights must equal the number of pool entries.  The
+weights do not have to sum to 1 and can be any relative numbers.
 
 Default: Equal probability for each pool entry
 
