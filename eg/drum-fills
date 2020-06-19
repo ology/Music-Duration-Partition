@@ -8,9 +8,8 @@ use lib map { "$ENV{HOME}/sandbox/$_/lib" } qw( MIDI-Drummer-Tiny MIDI-Util Musi
 use MIDI::Drummer::Tiny;
 use Music::Duration::Partition;
 
-my $max   = shift || 8;
-my $bpm   = shift || 100;
-my $size  = shift || 4;
+my $max = shift || 8;
+my $bpm = shift || 100;
 
 my $d = MIDI::Drummer::Tiny->new(
     file => "$0.mid",
@@ -39,7 +38,7 @@ sub beat {
         ) for 1 .. 4;
 
         my $mdp = Music::Duration::Partition->new(
-            size    => $size,
+            size    => 4,
             pool    => [qw(qn en sn)],
             weights => [5, 10, 5],
         );
