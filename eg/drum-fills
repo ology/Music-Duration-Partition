@@ -39,8 +39,9 @@ sub beat {
         ) for 1 .. 4;
 
         my $mdp = Music::Duration::Partition->new(
-            size => $size,
-            pool => [qw(qn en sn)],
+            size    => $size,
+            pool    => [qw(qn en sn)],
+            weights => [5, 10, 5],
         );
         my $motif = $mdp->motif;
 
