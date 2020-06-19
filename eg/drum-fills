@@ -56,5 +56,5 @@ sub beat {
             $d->note($motif->[$n], $patch);
         }
     }
-    $d->note('wn', $d->crash1, $d->kick);
+    $d->note($d->whole, $d->crash1, $d->kick);
 }
