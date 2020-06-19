@@ -32,7 +32,11 @@ sub pulse {
 
 sub beat {
     for my $n (1 .. $max) {
-        $d->note($d->quarter, $_ == 1 ? $d->crash1 : '', $_ % 2 ? $d->kick : $d->snare) for 1 .. 4;
+        $d->note(
+            $d->quarter,
+            $_ == 1 ? $d->crash1 : '',
+            $_ % 2 ? $d->kick : $d->snare
+        ) for 1 .. 4;
 
         my $mdp = Music::Duration::Partition->new(
             size => $size,
