@@ -46,12 +46,12 @@ sub beat {
 
         my $patch = $d->snare;
         for my $n (0 .. @$motif - 1) {
-            $patch = $d->hi_tom       if $n == 2;
-            $patch = $d->hi_mid_tom   if $n == 3;
-            $patch = $d->low_mid_tom  if $n == 4;
-            $patch = $d->low_tom      if $n == 5;
-            $patch = $d->hi_floor_tom if $n == 6;
-            $patch = $d->hi_floor_tom if $n == 7;
+            $patch = $d->hi_tom        if $n == 2;
+            $patch = $d->hi_mid_tom    if $n == 3;
+            $patch = $d->low_mid_tom   if $n == 4;
+            $patch = $d->low_tom       if $n == 5;
+            $patch = $d->hi_floor_tom  if $n == 6;
+            $patch = $d->low_floor_tom if $n == 7;
 
             $d->note($motif->[$n], $patch);
         }
