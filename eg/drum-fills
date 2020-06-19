@@ -1,0 +1,56 @@
+#!/usr/bin/env perl
+use strict;
+use warnings;
+
+# Use local libraries
+use lib map { "$ENV{HOME}/sandbox/$_/lib" } qw( MIDI-Drummer-Tiny MIDI-Util Music-Duration-Partition );
+
+use MIDI::Drummer::Tiny;
+use Music::Duration::Partition;
+
+my $max   = shift || 4;
+my $bpm   = shift || 100;
+my $size  = shift || 4;
+
+my $d = MIDI::Drummer::Tiny->new(
+    file => "$0.mid",
+    bpm  => $bpm,
+);
+
+$d->score->synch(
+    \&pulse,
+    \&beat,
+);
+
+$d->write;
+
+sub pulse {
+    for my $n (1 .. $max) {
+        $d->note($d->quarter, $d->pedal_hh) for 1 .. 4;
+    }
+}
+
+sub beat {
+    for my $n (1 .. $max) {
+        $d->note($d->quarter, $_ == 1 ? $d->crash1 : '', $_ % 2 ? $d->kick : $d->snare) for 1 .. 4;
+
+        my $mdp = Music::Duration::Partition->new(
+            size => $size,
+            pool => [qw(qn en sn)],
+        );
+        my $motif = $mdp->motif;
+
+        my $patch = $d->snare;
+        for my $n (0 .. @$motif - 1) {
+            $patch = $d->hi_tom       if $n == 2;
+            $patch = $d->hi_mid_tom   if $n == 3;
+            $patch = $d->low_mid_tom  if $n == 4;
+            $patch = $d->low_tom      if $n == 5;
+            $patch = $d->hi_floor_tom if $n == 6;
+            $patch = $d->hi_floor_tom if $n == 7;
+
+            $d->note($motif->[$n], $patch);
+        }
+    }
+    $d->note('wn', $d->crash1, $d->kick);
+}
