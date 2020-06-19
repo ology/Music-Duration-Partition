@@ -49,7 +49,7 @@ use namespace::clean;
 
 C<Music::Duration::Partition> partitions a musical duration into
 rhythmic phrases, given by the B<size>, into smaller durations drawn
-from the B<pool> of possible durations.
+from the B<pool> of possibly weighted durations.
 
 =head1 ATTRIBUTES
 
