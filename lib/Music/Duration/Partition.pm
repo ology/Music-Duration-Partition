@@ -126,6 +126,7 @@ has _mrd => (
 
 sub _build__mrd {
     my ($self) = @_;
+    die 'Sizes of weights and pool not equal' unless @{ $self->weights } == @{ $self->pool };
     return Math::Random::Discrete->new($self->weights, $self->pool);
 }
 
