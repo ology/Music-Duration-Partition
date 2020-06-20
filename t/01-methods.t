@@ -74,7 +74,7 @@ $mdp = new_ok 'Music::Duration::Partition' => [
 ];
 
 throws_ok { $mdp->motif }
-    qr/Number of values must equal number of weights/,
+    qr/weights and pool not equal/,
     'wrong pool weight';
 
 done_testing();
