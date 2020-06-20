@@ -184,6 +184,8 @@ sub _build_weights {
 
 Show the progress of the B<motif> method.
 
+Default: C<0>
+
 =cut
 
 has verbose => (
