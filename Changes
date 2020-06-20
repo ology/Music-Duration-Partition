@@ -1,6 +1,8 @@
 Revision history for Music-Duration-Partition
 
 {{$NEXT}}
+
+0.0506 2020-06-19 04:40:41
     - Improve the eg/drum-fills program.
     - Simplify tests.
 
