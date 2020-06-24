@@ -36,8 +36,6 @@ sub beat {
         weights => [5, 10, 5],
     );
 
-    my $j = 0;
-
     for my $n (1 .. $max) {
         $d->note(
             $d->quarter,
@@ -49,7 +47,7 @@ sub beat {
 
         my $patch;
         for my $i (0 .. @$motif - 1) {
-            if ($j % 2 == 0) {
+            if ($n % 2 == 0) {
                 $patch = $d->snare         if $i == 0;
                 $patch = $d->snare         if $i == 1;
                 $patch = $d->hi_tom        if $i == 2;
@@ -76,8 +74,6 @@ sub beat {
 
             $d->note($motif->[$i], $patch);
         }
-
-        $j++;
     }
     $d->note($d->whole, $d->crash1, $d->kick);
 }
