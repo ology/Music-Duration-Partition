@@ -36,6 +36,8 @@ sub beat {
         weights => [5, 10, 5],
     );
 
+    my $j = 0;
+
     for my $n (1 .. $max) {
         $d->note(
             $d->quarter,
@@ -45,17 +47,37 @@ sub beat {
 
         my $motif = $mdp->motif;
 
-        my $patch = $d->snare;
-        for my $n (0 .. @$motif - 1) {
-            $patch = $d->hi_tom        if $n == 2;
-            $patch = $d->hi_mid_tom    if $n == 3;
-            $patch = $d->low_mid_tom   if $n == 4;
-            $patch = $d->low_tom       if $n == 5;
-            $patch = $d->hi_floor_tom  if $n == 6;
-            $patch = $d->low_floor_tom if $n == 7;
+        my $patch;
+        for my $i (0 .. @$motif - 1) {
+            if ($j % 2 == 0) {
+                $patch = $d->snare         if $i == 0;
+                $patch = $d->snare         if $i == 1;
+                $patch = $d->hi_tom        if $i == 2;
+                $patch = $d->hi_mid_tom    if $i == 3;
+                $patch = $d->low_mid_tom   if $i == 4;
+                $patch = $d->low_tom       if $i == 5;
+                $patch = $d->hi_floor_tom  if $i == 6;
+                $patch = $d->low_floor_tom if $i == 7;
+            }
+            else {
+                $patch = $d->snare         if $i == 0;
+                $patch = $d->hi_tom        if $i == 1;
+                $patch = $d->snare         if $i == 2;
+                $patch = $d->hi_mid_tom    if $i == 3;
+                $patch = $d->snare         if $i == 4;
+                $patch = $d->low_mid_tom   if $i == 5;
+                $patch = $d->snare         if $i == 6;
+                $patch = $d->low_tom       if $i == 7;
+                $patch = $d->snare         if $i == 8;
+                $patch = $d->hi_floor_tom  if $i == 9;
+                $patch = $d->snare         if $i == 10;
+                $patch = $d->low_floor_tom if $i == 11;
+            }
 
-            $d->note($motif->[$n], $patch);
+            $d->note($motif->[$i], $patch);
         }
+
+        $j++;
     }
     $d->note($d->whole, $d->crash1, $d->kick);
 }
