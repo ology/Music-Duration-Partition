@@ -1,6 +1,8 @@
 Revision history for Music-Duration-Partition
 
 {{$NEXT}}
+
+0.0508 2020-06-24 06:53:16
     - Fix eg/drum-fills logic.
 
 0.0507 2020-06-19 23:47:01
