@@ -50,8 +50,7 @@ sub beat {
         my $patch;
         for my $i (0 .. @$motif - 1) {
             if ($n % 2 == 0) {
-                $patch = $d->snare         if $i == 0;
-                $patch = $d->snare         if $i == 1;
+                $patch = $d->snare         if $i == 0 || $i == 1;
                 $patch = $d->hi_tom        if $i == 2;
                 $patch = $d->hi_mid_tom    if $i == 3;
                 $patch = $d->low_mid_tom   if $i == 4;
