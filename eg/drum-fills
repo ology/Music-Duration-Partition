@@ -60,17 +60,12 @@ sub beat {
                 $patch = $d->low_floor_tom if $i == 7;
             }
             else {
-                $patch = $d->snare         if $i == 0;
+                $patch = $d->snare         if $i == 0 || $i == 2 || $i == 4 || $i == 6 || $i == 8 || $i == 10;
                 $patch = $d->hi_tom        if $i == 1;
-                $patch = $d->snare         if $i == 2;
                 $patch = $d->hi_mid_tom    if $i == 3;
-                $patch = $d->snare         if $i == 4;
                 $patch = $d->low_mid_tom   if $i == 5;
-                $patch = $d->snare         if $i == 6;
                 $patch = $d->low_tom       if $i == 7;
-                $patch = $d->snare         if $i == 8;
                 $patch = $d->hi_floor_tom  if $i == 9;
-                $patch = $d->snare         if $i == 10;
                 $patch = $d->low_floor_tom if $i == 11;
             }
 
