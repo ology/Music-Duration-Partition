@@ -5,6 +5,7 @@ use warnings;
 # Use local libraries
 use lib map { "$ENV{HOME}/sandbox/$_/lib" } qw( MIDI-Drummer-Tiny Music-Duration-Partition );
 
+use Data::Dumper::Compact 'ddc';
 use MIDI::Drummer::Tiny;
 use Music::Duration::Partition;
 
@@ -44,6 +45,7 @@ sub beat {
         ) for 1 .. 4;
 
         my $motif = $mdp->motif;
+warn(__PACKAGE__,' ',__LINE__," MARK: ",ddc($motif));
 
         my $patch;
         for my $i (0 .. @$motif - 1) {
