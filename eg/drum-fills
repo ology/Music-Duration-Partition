@@ -45,7 +45,7 @@ sub beat {
         ) for 1 .. 4;
 
         my $motif = $mdp->motif;
-warn(__PACKAGE__,' ',__LINE__," MARK: ",ddc($motif));
+        warn ddc($motif);
 
         my $patch;
         for my $i (0 .. @$motif - 1) {
