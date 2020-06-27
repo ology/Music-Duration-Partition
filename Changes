@@ -1,6 +1,9 @@
 Revision history for Music-Duration-Partition
 
 {{$NEXT}}
+    - Improve the eg/drum-fills program again!
+
+0.0509 2020-06-24 10:38:28
     - Lose the redundant counter in the eg/drum-fills program.
 
 0.0508 2020-06-24 06:53:16
