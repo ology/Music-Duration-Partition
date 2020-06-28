@@ -70,7 +70,7 @@ sub beat {
                 $patch = $d->hi_floor_tom  if $i == 6;
                 $patch = $d->low_floor_tom if $i == 7;
             }
-            # Descend the kit for each beat but alternate with the snare
+            # Descend the kit but alternate with the snare
             else {
                 $patch = $d->snare         if $i % 2 == 0;
                 $patch = $d->hi_tom        if $i == 1;
