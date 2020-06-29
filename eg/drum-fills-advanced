@@ -61,7 +61,7 @@ sub beat {
         # Play the fill motif
         for my $i (0 .. @$motif - 1) {
             # Descend the kit
-            if ($n % 4 == 0) {
+            if ($n % 4 == 1) {
                 $patch = $d->snare         if $i == 0 || $i == 1;
                 $patch = $d->hi_tom        if $i == 2;
                 $patch = $d->hi_mid_tom    if $i == 3;
@@ -71,7 +71,7 @@ sub beat {
                 $patch = $d->low_floor_tom if $i == 7;
             }
             # Descend the kit and possibly strike a cymbal
-            elsif ($n % 4 == 1) {
+            elsif ($n % 4 == 2) {
                 $patch = $d->snare                     if $i == 0 || $i == 1;
                 $patch = _or_cymbal($d->hi_tom)        if $i == 2;
                 $patch = _or_cymbal($d->hi_mid_tom)    if $i == 3;
@@ -81,7 +81,7 @@ sub beat {
                 $patch = _or_cymbal($d->low_floor_tom) if $i == 7;
             }
             # Descend the kit but alternate with the snare
-            elsif ($n % 4 == 2) {
+            elsif ($n % 4 == 3) {
                 $patch = $d->snare         if $i % 2 == 0;
                 $patch = $d->hi_tom        if $i == 1;
                 $patch = $d->hi_mid_tom    if $i == 3;
@@ -91,7 +91,7 @@ sub beat {
                 $patch = $d->low_floor_tom if $i == 11;
             }
             # Descend the kit alternating with the snare but possibly strike a cymbal
-            elsif ($n % 4 == 3) {
+            elsif ($n % 4 == 0) {
                 $patch = $d->snare                     if $i % 2 == 0;
                 $patch = _or_cymbal($d->hi_tom)        if $i == 1;
                 $patch = _or_cymbal($d->hi_mid_tom)    if $i == 3;
