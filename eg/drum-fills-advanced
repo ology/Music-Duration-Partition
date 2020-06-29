@@ -114,6 +114,6 @@ sub _or_cymbal {
     my ($patch) = @_;
     my @cymbals = qw(crash1 crash2 splash china);
     my $cymbal = $cymbals[int rand @cymbals];
-    # Return a cymbal ~40% of the time
+    # Return a cymbal 4/10 times
     return int(rand 10) < 4 ? $d->$cymbal : $patch;
 }
