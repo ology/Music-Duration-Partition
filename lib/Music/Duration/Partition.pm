@@ -22,7 +22,7 @@ use namespace::clean;
   my $mdp = Music::Duration::Partition->new(
     size    => 8,
     pool    => [qw/ qn en sn /],
-    weights => [ 0.2, 0.3, 0.5 ],
+    weights => [ 0.2, 0.3, 0.5 ], # Optional
   );
 
   $mdp->pool_select( sub { ... } ); # Optional
