@@ -39,7 +39,7 @@ use namespace::clean;
 
   $score->write_score('motif.mid');
 
-  # The pool may also be made of MIDI durations
+  # The size and pool may also be made of MIDI durations
   $mdp = Music::Duration::Partition->new(
     size => 100,
     pool => [qw/ d50 d25 /],
