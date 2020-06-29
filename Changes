@@ -1,6 +1,10 @@
 Revision history for Music-Duration-Partition
 
 {{$NEXT}}
+    - Fork the eg/drum-fills program to eg/drum-fills-advanced.
+    - Improve the install suggestions.
+
+0.0510 2020-06-27 13:18:13
     - Improve the eg/drum-fills program again!
 
 0.0509 2020-06-24 10:38:28
