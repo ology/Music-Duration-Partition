@@ -1,6 +1,7 @@
 Revision history for Music-Duration-Partition
 
 {{$NEXT}}
+    - Add the eg/seven-eight example "groove generator" program.
 
 0.0512 2020-06-29 13:12:40
     - Enhance the eg/drum-fills-advanced program.
