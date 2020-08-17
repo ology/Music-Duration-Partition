@@ -16,7 +16,7 @@ my $bars   = shift || 4;
 my $bpm    = shift || 70;
 my $note   = shift || 'A';
 my $bscale = shift || 'pminor';
-my $tscale = shift || 'minor';
+my $tscale = shift || 'dorian';
 
 my $octave = 1;
 my $bpatch = 35;
