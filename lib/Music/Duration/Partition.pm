@@ -21,28 +21,28 @@ use namespace::clean;
 
   my $mdp = Music::Duration::Partition->new(
     size => 8, # 2 measures in 4/4 time
-    pool => [qw/ hn dqn qn en /],
+    pool => [qw(hn dqn qn en)],
   );
 
-  $mdp->pool_select( sub { ... } ); # Optional
+  $mdp->pool_select(sub { ... }); # Optional
 
   my $motif = $mdp->motif;
 
-  my @scale = get_scale_MIDI( 'C', 4, 'major' );
+  my @scale = get_scale_MIDI('C', 4, 'major');
 
   my $score = MIDI::Simple->new_score;
 
-  for my $n ( 0 .. 31 ) { # 4 loops over the motif
-    $score->n( $motif->[$n % @$motif], $scale[int rand @scale] );
+  for my $n (0 .. 31) { # 4 loops over the motif
+    $score->n($motif->[$n % @$motif], $scale[int rand @scale]);
   }
 
   $score->write_score('motif.mid');
 
   # The pool may also be made of MIDI durations
   $mdp = Music::Duration::Partition->new(
-    size => 100,
-    pool => [qw/ d50 d25 /],
-    weights => [ 0.7, 0.3 ], # Optional
+    size    => 100,
+    pool    => [qw(d50 d25)],
+    weights => [0.7, 0.3], # Optional
   );
 
 =head1 DESCRIPTION
