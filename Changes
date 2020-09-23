@@ -1,7 +1,7 @@
 Revision history for Music-Duration-Partition
 
 {{$NEXT}}
-    - Replace the eg/drum-fills-advanced modulo conditions with a random fill.
+    - Improve the eg/drum-fills-advanced program.
     - Improve documentation.
 
 0.0514 2020-08-17 09:47:06
