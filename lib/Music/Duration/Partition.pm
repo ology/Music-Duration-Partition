@@ -20,7 +20,7 @@ use namespace::clean;
   use Music::Scales;
 
   my $mdp = Music::Duration::Partition->new(
-    size    => 8,
+    size    => 8, # 2 measures in 4/4 time
     pool    => [qw/ qn en sn /],
     weights => [ 0.2, 0.3, 0.5 ], # Optional
   );
@@ -47,9 +47,16 @@ use namespace::clean;
 
 =head1 DESCRIPTION
 
-C<Music::Duration::Partition> partitions a musical duration into
-rhythmic phrases, given by the B<size>, into smaller durations drawn
-from the B<pool> of possibly weighted durations.
+A C<Music::Duration::Partition> divides a musical duration given by
+B<size>, into rhythmic phrases of smaller durations drawn from the
+B<pool>.
+
+For example, to generate a measure in C<5/4> time, set B<size> equal
+to C<5> and set the B<pool> to an array-reference of L<MIDI::Simple>
+durations whose lengths are less than or equal to C<5> quarter notes.
+
+To generate a measure in C<5/8> time, set B<size> equal to C<2.5>
+meaning 5 eighth notes.
 
 =head1 ATTRIBUTES
 
