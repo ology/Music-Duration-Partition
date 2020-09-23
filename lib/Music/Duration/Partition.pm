@@ -56,7 +56,7 @@ to C<5> and set the B<pool> to an array-reference of L<MIDI::Simple>
 durations whose lengths are less than or equal to C<5> quarter notes.
 
 To generate a measure in C<5/8> time, set B<size> equal to C<2.5>
-meaning 5 eighth notes.
+(meaning 5 eighth notes).
 
 =head1 ATTRIBUTES
 
