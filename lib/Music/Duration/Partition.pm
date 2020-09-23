@@ -20,9 +20,8 @@ use namespace::clean;
   use Music::Scales;
 
   my $mdp = Music::Duration::Partition->new(
-    size    => 8, # 2 measures in 4/4 time
-    pool    => [qw/ qn en sn /],
-    weights => [ 0.2, 0.3, 0.5 ], # Optional
+    size => 8, # 2 measures in 4/4 time
+    pool => [qw/ hn dqn qn en /],
   );
 
   $mdp->pool_select( sub { ... } ); # Optional
@@ -43,6 +42,7 @@ use namespace::clean;
   $mdp = Music::Duration::Partition->new(
     size => 100,
     pool => [qw/ d50 d25 /],
+    weights => [ 0.7, 0.3 ], # Optional
   );
 
 =head1 DESCRIPTION
