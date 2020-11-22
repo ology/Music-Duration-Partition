@@ -11,7 +11,7 @@ my $mdp = Music::Duration::Partition->new(
   size    => 8,
   pool    => [qw(hn qn tqn)],
   weights => [3, 2, 1],
-  groups  => [0, 0, 3], # Optional
+  groups  => [0, 0, 3],
 );
 
 my $motif = $mdp->motif;
