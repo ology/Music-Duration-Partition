@@ -45,6 +45,13 @@ use namespace::clean;
     weights => [0.7, 0.3], # Optional
   );
 
+  # The pool may also be grouped
+  $mdp = Music::Duration::Partition->new(
+    size   => 4,
+    pool   => [qw(hn qn tqn)],
+    groups => [0, 0, 3], # Optional
+  );
+
 =head1 DESCRIPTION
 
 A C<Music::Duration::Partition> divides a musical duration given by
@@ -185,6 +192,46 @@ sub _build_weights {
     return [ (1) x @{ $self->pool } ];
 }
 
+=head2 groups
+
+  $groups = $mdp->groups;
+
+An array reference of entries that represent the number of times that a
+pool item is selected in sequence.
+
+The number of groups must equal the number of pool entries.
+
+Default: Zero for each pool entry
+
+=cut
+
+has groups => (
+    is      => 'ro',
+    builder => 1,
+    lazy    => 1,
+);
+
+sub _build_groups {
+    my ($self) = @_;
+    return [ (0) x @{ $self->pool } ];
+}
+
+=head2 pool_group
+
+  $pool_group = $mdp->pool_group;
+
+A hash reference of pool keys and group values, respectively.
+
+This attribute is computed and any setting given in the constructor is
+ignored.
+
+=cut
+
+has pool_group => (
+    is       => 'ro',
+    init_arg => undef,
+);
+
 =head2 verbose
 
   $verbose = $mdp->verbose;
@@ -207,6 +254,20 @@ has verbose => (
   $mdp = Music::Duration::Partition->new(%arguments);
 
 Create a new C<Music::Duration::Partition> object.
+
+=for Pod::Coverage BUILD
+
+=cut
+
+sub BUILD {
+    my ($self, $args) = @_;
+
+    my %pool_group;
+    for my $i (0 .. @{ $self->pool } - 1) {
+        $pool_group{ $self->pool->[$i] } = $self->groups->[$i];
+    }
+    $self->{pool_group} = \%pool_group;
+}
 
 =head2 motif
 
@@ -231,9 +292,25 @@ sub motif {
     my $format = '%.4f';
 
     my $sum = 0;
+    my $group_num = 0;
+    my $group_name = '';
 
     while ( $sum < $self->size ) {
         my $name = $self->pool_select->();
+        if ($group_num) {
+            $group_num--;
+            $name = $group_name;
+        }
+        else {
+            if ($self->pool_group->{$name}) {
+                $group_num = $self->pool_group->{$name} - 1;
+                $group_name = $name;
+            }
+            else {
+                $group_num = 0;
+                $group_name = '';
+            }
+        }
         my $size = $self->_duration($name);
         my $diff = $self->size - $sum;
 
