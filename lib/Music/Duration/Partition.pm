@@ -106,9 +106,9 @@ motif.
 
 Default: C<[ keys %MIDI::Simple::Length ]> (wn, hn, qn, ...)
 
-This can be B<either> a list of duration names, as in the default
-example, or duration values, specified with a preceding 'd'.  A
-mixture of both is not well defined. YMMV
+This can be B<either> a list of duration names, as in the example, or
+duration values, specified with a preceding 'd'.  A mixture of both is
+not well defined. YMMV
 
 =cut
 
