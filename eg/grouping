@@ -3,13 +3,28 @@ use strict;
 use warnings;
 
 use Data::Dumper::Compact 'ddc';
+use MIDI::Simple;
 use Music::Duration::Partition;
+use Music::Scales;
 
 my $mdp = Music::Duration::Partition->new(
-  size   => 8,
-  pool   => [qw(hn qn tqn)],
-  groups => [0, 0, 3],
+  size    => 8,
+  pool    => [qw(hn qn tqn)],
+  weights => [3, 2, 1],
+  groups  => [0, 0, 3], # Optional
 );
 
 my $motif = $mdp->motif;
 warn(__PACKAGE__,' ',__LINE__," MARK: ",ddc($motif));
+
+my @scale = get_scale_MIDI('C', 4, 'major');
+
+my $score = MIDI::Simple->new_score;
+
+for my $n (0 .. 31) { # 4 loops over the motif
+    $score->n($motif->[$n % @$motif], $scale[int rand @scale]);
+}
+
+$score->n('wn', $scale[0]);
+
+$score->write_score("$0.mid");
