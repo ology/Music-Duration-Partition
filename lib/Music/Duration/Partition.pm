@@ -297,6 +297,8 @@ sub motif {
 
     while ( $sum < $self->size ) {
         my $name = $self->pool_select->();
+
+        # Compute grouping
         if ($group_num) {
             $group_num--;
             $name = $group_name;
@@ -311,6 +313,7 @@ sub motif {
                 $group_name = '';
             }
         }
+
         my $size = $self->_duration($name);
         my $diff = $self->size - $sum;
 
