@@ -2,6 +2,7 @@ Revision history for Music-Duration-Partition
 
 {{$NEXT}}
     - Add duration grouping logic.
+    - Add the eg/grouping program.
 
 0.0515 2020-09-23 11:47:25
     - Improve the eg/drum-fills-advanced program.
