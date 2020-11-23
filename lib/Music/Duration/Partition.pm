@@ -309,7 +309,7 @@ sub motif {
 
         # The difference is less than the min_size
         if (sprintf( $format, $diff ) < sprintf( $format, $self->_min_size )) {
-            warn "WARNING: Left over duration: $diff\n"
+            warn "WARNING: Leftover duration: $diff\n"
                 if $self->verbose;
             last;
         }
