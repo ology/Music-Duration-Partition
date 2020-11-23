@@ -1,6 +1,8 @@
 Revision history for Music-Duration-Partition
 
 {{$NEXT}}
+
+0.0600 2020-11-22 08:42:26
     - Add duration grouping logic.
     - Add the eg/grouping program.
     - Update documentation.
