@@ -2,6 +2,7 @@ Revision history for Music-Duration-Partition
 
 {{$NEXT}}
     - Turn on the remainder attribute by default.
+    - Adjust the eg/grouping program.
 
 0.0700 2020-11-23 08:31:27
     - Warn if there is a remainder duration in verbose mode.
