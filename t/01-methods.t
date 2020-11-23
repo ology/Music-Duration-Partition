@@ -77,4 +77,11 @@ throws_ok { $mdp->motif }
     qr/weights and pool not equal/,
     'wrong pool weight';
 
+$mdp = new_ok 'Music::Duration::Partition' => [
+    pool      => [qw/ dhn /],
+    remainder => 1,
+];
+
+is_deeply $mdp->motif, [qw/ dhn d96 /], 'remainder';
+
 done_testing();
