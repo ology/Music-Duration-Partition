@@ -1,6 +1,8 @@
 Revision history for Music-Duration-Partition
 
 {{$NEXT}}
+
+0.0701 2020-11-23 09:14:15
     - Turn on the remainder attribute by default.
     - Adjust the eg/grouping program.
 
