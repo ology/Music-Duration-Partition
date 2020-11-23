@@ -10,7 +10,6 @@ use Music::Scales;
 my $mdp = Music::Duration::Partition->new(
   size    => 8,
   pool    => [qw(hn qn ten)],
-  weights => [3, 2, 1],
   groups  => [0, 0, 3],
   verbose => 1,
 );
