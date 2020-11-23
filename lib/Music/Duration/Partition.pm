@@ -236,6 +236,21 @@ sub _build__pool_group {
     return \%pool_group;
 }
 
+=head2 remainder
+
+  $remainder = $mdp->remainder;
+
+Append any remaining duration ticks to the end of the motif.
+
+Default: C<0>
+
+=cut
+
+has remainder => (
+    is      => 'ro',
+    default => sub { return 0 },
+);
+
 =head2 verbose
 
   $verbose = $mdp->verbose;
@@ -311,6 +326,8 @@ sub motif {
         if (sprintf( $format, $diff ) < sprintf( $format, $self->_min_size )) {
             warn "WARNING: Leftover duration: $diff\n"
                 if $self->verbose;
+            push @$motif, 'd' . sprintf('%.0f', 96 * $diff)
+                if $self->remainder && sprintf($format, 96 * $diff) > 0;
             last;
         }
 
