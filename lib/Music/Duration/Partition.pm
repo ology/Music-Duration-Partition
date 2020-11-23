@@ -299,7 +299,7 @@ sub motif {
     my $group_name = '';
 
     while ( $sum < $self->size ) {
-        my $name = $self->pool_select->();
+        my $name = $self->pool_select->(); # Chooses a note duration
 
         # Compute grouping
         if ($group_num) {
@@ -317,20 +317,24 @@ sub motif {
             }
         }
 
-        my $size = $self->_duration($name);
-        my $diff = $self->size - $sum;
+        my $size = $self->_duration($name); # Get the duration of the note
+        my $diff = $self->size - $sum; # How much is left?
 
+        # The difference is less than the min_size
         last
             if sprintf( $format, $diff ) < sprintf( $format, $self->_min_size );
 
+        # The note duration is greater than the difference
         next
             if sprintf( $format, $size ) > sprintf( $format, $diff );
 
+        # Increment the sum by the note duration
         $sum += $size;
 
         warn(__PACKAGE__,' ',__LINE__," $name, $size, $sum\n")
             if $self->verbose;
 
+        # Add the note to the motif if the sum is less than the total duration size
         push @$motif, $name
             if $sum <= $self->size;
     }
