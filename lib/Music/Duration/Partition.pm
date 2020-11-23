@@ -4,14 +4,15 @@ package Music::Duration::Partition;
 
 our $VERSION = '0.0701';
 
-use Moo;
-use strictures 2;
-
 use Math::Random::Discrete;
 use MIDI::Simple;
 use List::Util qw/ min /;
 
+use Moo;
+use strictures 2;
 use namespace::clean;
+
+use constant TICKS => 96;
 
 =head1 SYNOPSIS
 
@@ -325,8 +326,8 @@ sub motif {
         if (sprintf( $format, $diff ) < sprintf( $format, $self->_min_size )) {
             warn "WARNING: Leftover duration: $diff\n"
                 if $self->verbose;
-            push @$motif, 'd' . sprintf('%.0f', 96 * $diff)
-                if $self->remainder && sprintf($format, 96 * $diff) > 0;
+            push @$motif, 'd' . sprintf('%.0f', TICKS * $diff)
+                if $self->remainder && sprintf($format, TICKS * $diff) > 0;
             last;
         }
 
