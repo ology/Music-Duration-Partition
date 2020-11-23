@@ -2,8 +2,8 @@ Revision history for Music-Duration-Partition
 
 {{$NEXT}}
     - Warn if there is a remainder duration in verbose mode.
-    - Improve the eg/grouping program.
     - Append any remainder ticks if requested with the remainder attribute.
+    - Improve the eg/grouping program.
 
 0.0602 2020-11-23 06:12:41
     - Move the ->BUILD code to an attribute _build method.
