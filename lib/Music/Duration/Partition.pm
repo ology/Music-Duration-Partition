@@ -220,9 +220,21 @@ sub _build_groups {
 }
 
 has _pool_group => (
-    is       => 'ro',
-    init_arg => undef,
+    is      => 'ro',
+    builder => 1,
+    lazy    => 1,
 );
+
+sub _build__pool_group {
+    my ($self) = @_;
+
+    my %pool_group;
+    for my $i (0 .. @{ $self->pool } - 1) {
+        $pool_group{ $self->pool->[$i] } = $self->groups->[$i];
+    }
+
+    return \%pool_group;
+}
 
 =head2 verbose
 
@@ -246,20 +258,6 @@ has verbose => (
   $mdp = Music::Duration::Partition->new(%arguments);
 
 Create a new C<Music::Duration::Partition> object.
-
-=for Pod::Coverage BUILD
-
-=cut
-
-sub BUILD {
-    my ($self, $args) = @_;
-
-    my %pool_group;
-    for my $i (0 .. @{ $self->pool } - 1) {
-        $pool_group{ $self->pool->[$i] } = $self->groups->[$i];
-    }
-    $self->{_pool_group} = \%pool_group;
-}
 
 =head2 motif
 
