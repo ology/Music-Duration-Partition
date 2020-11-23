@@ -47,7 +47,6 @@ use namespace::clean;
 
   # The pool may also be grouped
   $mdp = Music::Duration::Partition->new(
-    size   => 4,
     pool   => [qw(hn qn tqn)],
     groups => [0, 0, 3], # Optional
   );
