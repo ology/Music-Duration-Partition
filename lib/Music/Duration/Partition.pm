@@ -308,8 +308,11 @@ sub motif {
         my $diff = $self->size - $sum; # How much is left?
 
         # The difference is less than the min_size
-        last
-            if sprintf( $format, $diff ) < sprintf( $format, $self->_min_size );
+        if (sprintf( $format, $diff ) < sprintf( $format, $self->_min_size )) {
+            warn "WARNING: Left over duration: $diff\n"
+                if $self->verbose;
+            last;
+        }
 
         # The note duration is greater than the difference
         next
