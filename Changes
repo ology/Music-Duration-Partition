@@ -1,6 +1,9 @@
 Revision history for Music-Duration-Partition
 
 {{$NEXT}}
+    - Move the ->BUILD code to an attribute _build method.
+
+0.0601 2020-11-23 05:48:19
     - Add handy comments to the code.
     - Make pool_group a private attribute.
 
