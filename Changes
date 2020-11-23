@@ -1,6 +1,7 @@
 Revision history for Music-Duration-Partition
 
 {{$NEXT}}
+    - Use a TICKS constant.
 
 0.0701 2020-11-23 09:14:15
     - Turn on the remainder attribute by default.
