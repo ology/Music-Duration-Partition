@@ -242,7 +242,7 @@ sub _build__pool_group {
 
 Append any remaining duration ticks to the end of the motif.
 
-Default: C<1>
+Default: C<1> Yes. Make it so.
 
 =cut
 
