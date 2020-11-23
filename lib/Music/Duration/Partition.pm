@@ -242,13 +242,13 @@ sub _build__pool_group {
 
 Append any remaining duration ticks to the end of the motif.
 
-Default: C<0>
+Default: C<1>
 
 =cut
 
 has remainder => (
     is      => 'ro',
-    default => sub { return 0 },
+    default => sub { return 1 },
 );
 
 =head2 verbose
