@@ -219,18 +219,7 @@ sub _build_groups {
     return [ (0) x @{ $self->pool } ];
 }
 
-=head2 pool_group
-
-  $pool_group = $mdp->pool_group;
-
-A hash reference of pool keys and group values, respectively.
-
-This attribute is computed and any setting given in the constructor is
-ignored.
-
-=cut
-
-has pool_group => (
+has _pool_group => (
     is       => 'ro',
     init_arg => undef,
 );
@@ -269,7 +258,7 @@ sub BUILD {
     for my $i (0 .. @{ $self->pool } - 1) {
         $pool_group{ $self->pool->[$i] } = $self->groups->[$i];
     }
-    $self->{pool_group} = \%pool_group;
+    $self->{_pool_group} = \%pool_group;
 }
 
 =head2 motif
@@ -307,8 +296,8 @@ sub motif {
             $name = $group_name;
         }
         else {
-            if ($self->pool_group->{$name}) {
-                $group_num = $self->pool_group->{$name} - 1;
+            if ($self->_pool_group->{$name}) {
+                $group_num = $self->_pool_group->{$name} - 1;
                 $group_name = $name;
             }
             else {
