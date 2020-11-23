@@ -2,6 +2,7 @@ Revision history for Music-Duration-Partition
 
 {{$NEXT}}
     - Add handy comments to the code.
+    - Make pool_group a private attribute.
 
 0.0600 2020-11-22 08:42:26
     - Add duration grouping logic.
