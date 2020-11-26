@@ -16,7 +16,7 @@ use constant TICKS => 96;
 
 =head1 SYNOPSIS
 
-  use MIDI::Simple;
+  use MIDI::Simple ();
   use Music::Duration::Partition;
   use Music::Scales;
 
