@@ -1,6 +1,8 @@
 Revision history for Music-Duration-Partition
 
 {{$NEXT}}
+
+0.0702 2020-11-26 11:17:36
     - Use a TICKS constant.
     - Don't import anything from MIDI::Simple.
 
