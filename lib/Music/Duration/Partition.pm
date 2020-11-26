@@ -2,10 +2,10 @@ package Music::Duration::Partition;
 
 # ABSTRACT: Partition a musical duration into rhythmic phrases
 
-our $VERSION = '0.0701';
+our $VERSION = '0.0702';
 
 use Math::Random::Discrete;
-use MIDI::Simple;
+use MIDI::Simple ();
 use List::Util qw/ min /;
 
 use Moo;
