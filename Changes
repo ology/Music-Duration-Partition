@@ -1,6 +1,7 @@
 Revision history for Music-Duration-Partition
 
 {{$NEXT}}
+    - Update the eg/ programs.
 
 0.0702 2020-11-26 11:17:36
     - Use a TICKS constant.
