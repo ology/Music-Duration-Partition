@@ -16,7 +16,7 @@ use Music::Duration::Partition;
 my $bars   = shift || 16;
 my $bpm    = shift || 70;
 my $note   = shift || 'A';
-my $tscale = shift || 'minor';
+my $tscale = shift || 'dorian';
 my $bscale = shift || 'pminor';
 
 my $octave = 1;
