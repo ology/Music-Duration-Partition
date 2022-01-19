@@ -2,7 +2,7 @@ package Music::Duration::Partition;
 
 # ABSTRACT: Partition a musical duration into rhythmic phrases
 
-our $VERSION = '0.0702';
+our $VERSION = '0.0703';
 
 use Math::Random::Discrete;
 use MIDI::Simple ();
