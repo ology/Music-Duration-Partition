@@ -13,7 +13,7 @@ use Music::Scales;
 use Music::VoiceGen;
 use Music::Duration::Partition;
 
-my $bars   = shift || 8;
+my $bars   = shift || 16;
 my $bpm    = shift || 90;
 my $note   = shift || 'A';
 my $tscale = shift || 'minor';
