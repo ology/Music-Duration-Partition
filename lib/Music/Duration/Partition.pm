@@ -21,35 +21,35 @@ use constant TICKS => 96;
   use Music::Scales;
 
   my $mdp = Music::Duration::Partition->new(
-    size => 8, # 2 measures in 4/4 time
-    pool => [qw(hn dqn qn en)],
+    size => 8,                  # 2 measures in 4/4 time
+    pool => [qw(hn dqn qn en)], # Made from these durations
   );
 
-  $mdp->pool_select(sub { ... }); # Optional
+  $mdp->pool_select(sub { ... }); # optional
 
-  my $motif = $mdp->motif;
+  my $motif = $mdp->motif; # Random list-ref of pool members
 
   my @scale = get_scale_MIDI('C', 4, 'major');
 
   my $score = MIDI::Simple->new_score;
 
-  for my $n (0 .. 31) { # 4 loops over the motif
+  for my $n (0 .. 31) { # 32/8=4 loops over the motif
     $score->n($motif->[$n % @$motif], $scale[int rand @scale]);
   }
 
   $score->write_score('motif.mid');
 
-  # The pool may also be made of duration ticks
+  # The pool may also be weighted
   $mdp = Music::Duration::Partition->new(
     size    => 100,
-    pool    => [qw(d50 d25)],
-    weights => [0.7, 0.3], # Optional
+    pool    => [qw(d50  d25)],
+    weights => [   0.7, 0.3], # optional
   );
 
   # The pool may also be grouped
   $mdp = Music::Duration::Partition->new(
     pool   => [qw(hn qn tqn)],
-    groups => [0, 0, 3], # Optional
+    groups => [   1, 1, 3], # optional
   );
 
 =head1 DESCRIPTION
