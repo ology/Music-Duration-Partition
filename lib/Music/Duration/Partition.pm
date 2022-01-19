@@ -201,9 +201,9 @@ pool item is selected in sequence.
 
 The number of groups must equal the number of pool entries.
 
-Default: Zero for each pool entry
+Default: C<0> for each pool entry
 
-* Zero and one mean the same thing for grouping.  So if needed, an
+* C<0> and C<1> mean the same thing for grouping.  So if needed, an
 entry should have a value greater than one.
 
 =cut
