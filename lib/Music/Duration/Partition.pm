@@ -106,8 +106,8 @@ motif.
 
 Default: C<[ keys %MIDI::Simple::Length ]> (wn, hn, qn, ...)
 
-This can be B<either> a list of duration names, or duration values,
-specified with a preceding 'd'.  A mixture of both is not well
+This can be either a list of duration names, or duration values,
+specified with a preceding C<d>.  A mixture of both is not well
 defined. YMMV
 
 =cut
@@ -171,9 +171,9 @@ sub _build_pool_select {
 
   $weights = $mdp->weights;
 
-Specification of the frequency of pool item selection.
+The frequencies of pool item selection.
 
-The number of weights must equal the number of pool entries.  The
+The number of weights must equal the number of B<pool> entries.  The
 weights do not have to sum to 1 and can be any relative numbers.
 
 Default: Equal probability for each pool entry
@@ -196,10 +196,9 @@ sub _build_weights {
 
   $groups = $mdp->groups;
 
-An array reference of entries that represent the number of times that a
-pool item is selected in sequence.
+The number of times that a pool item is selected in sequence.
 
-The number of groups must equal the number of pool entries.
+The number of groups must equal the number of B<pool> entries.
 
 Default: C<0> for each pool entry
 
@@ -242,7 +241,7 @@ sub _build__pool_group {
 
 Append any remaining duration ticks to the end of the motif.
 
-Default: C<1> Yes. Make it so.
+Default: C<1>  "Yes. Make it so."
 
 =cut
 
