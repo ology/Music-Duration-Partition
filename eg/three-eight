@@ -58,7 +58,6 @@ sub bass {
         pitches   => \@pitches,
         intervals => \@intervals,
     );
-
     my @notes = map { [ map { $voice->rand } @$_ ] } @motifs;
 
     add_notes($d, \@motifs, \@notes);
