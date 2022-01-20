@@ -61,14 +61,7 @@ sub bass {
 
     my @notes = map { [ map { $voice->rand } @$_ ] } @motifs;
 
-    for my $n (1 .. $d->bars) {
-        my $index = int rand @motifs;
-        my $motif = $motifs[$index];
-        my $pitch = $notes[$index];
-        for my $i (0 .. $#$motif) {
-            $d->note($motif->[$i], $pitch->[$i]);
-        }
-    }
+    add_notes($d, \@motifs, \@notes);
 
     $d->note($d->dotted_quarter, $pitches[0]);
 }
@@ -95,16 +88,22 @@ sub top {
 
     my @notes = map { [ map { $voice->rand } @$_ ] } @motifs;
 
+    add_notes($d, \@motifs, \@notes);
+
+    $d->note($d->dotted_quarter, $pitches[0]);
+}
+
+sub add_notes {
+    my ($d, $motifs, $notes) = @_;
+
     for my $n (1 .. $d->bars) {
-        my $index = int rand @motifs;
-        my $motif = $motifs[$index];
-        my $pitch = $notes[$index];
+        my $index = int rand @$motifs;
+        my $motif = $motifs->[$index];
+        my $pitch = $notes->[$index];
         for my $i (0 .. $#$motif) {
             $d->note($motif->[$i], $pitch->[$i]);
         }
     }
-
-    $d->note($d->dotted_quarter, $pitches[0]);
 }
 
 sub drums {
