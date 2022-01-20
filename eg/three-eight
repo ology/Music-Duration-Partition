@@ -79,7 +79,7 @@ sub top {
     my $mdp = Music::Duration::Partition->new(
         size => 1.5,
         pool => [qw(qn en sn)],
-        weights => [1, 1, 2],
+        weights => [1, 2, 3],
     );
     my @motifs = map { $mdp->motif } 1 .. 8;
 
