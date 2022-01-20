@@ -84,7 +84,7 @@ sub top {
     );
     my @notes = map { [ map { $voice->rand } @$_ ] } @motifs;
 
-    add_notes($d, \@motifs, \@notes);
+    add_notes($d, \@motifs, \@notes, \@pitches);
 }
 
 sub add_notes {
