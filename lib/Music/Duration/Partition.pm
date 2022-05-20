@@ -6,7 +6,7 @@ our $VERSION = '0.0706';
 
 use Math::Random::Discrete;
 use MIDI::Simple ();
-use List::Util qw/ min /;
+use List::Util qw(min);
 
 use Moo;
 use strictures 2;
@@ -300,7 +300,7 @@ sub motif {
     my $group_name = '';
 
     while ( $sum < $self->size ) {
-        my $name = $self->pool_select->(); # Chooses a note duration
+        my $name = $self->pool_select->($self); # Chooses a note duration
 
         # Compute grouping
         if ($group_num) {
