@@ -1,6 +1,8 @@
 Revision history for Music-Duration-Partition
 
 {{$NEXT}}
+
+0.0707 2022-05-20 10:27:24
     - Improve the eg/three-eight program.
     - Fix the pool_select callback.
 
