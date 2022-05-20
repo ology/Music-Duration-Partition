@@ -30,8 +30,8 @@ my $d = MIDI::Drummer::Tiny->new(
     reverb    => 15,
     signature => '3/8',
     bars      => $bars,
-    kick      => 'n36', # Override default patch
-    snare     => 'n40', # "
+    kick      => 36, # Override default patch
+    snare     => 40, # "
 );
 
 $d->score->synch(
