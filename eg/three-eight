@@ -103,5 +103,5 @@ sub add_notes {
 }
 
 sub drums {
-    $d->metronome38($d->bars);
+    $d->metronome38;
 }
