@@ -23,9 +23,8 @@ use constant TICKS => 96;
   my $mdp = Music::Duration::Partition->new(
     size => 8,                  # 2 measures in 4/4 time
     pool => [qw(hn dqn qn en)], # Made from these durations
+    pool_select => sub { my $self = shift; ... }, # optional
   );
-
-  $mdp->pool_select(sub { ... }); # optional
 
   my $motif = $mdp->motif; # Random list-ref of pool members
 
