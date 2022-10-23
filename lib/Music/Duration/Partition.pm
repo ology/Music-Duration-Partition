@@ -4,12 +4,13 @@ package Music::Duration::Partition;
 
 our $VERSION = '0.0707';
 
-use Math::Random::Discrete;
+use Moo;
+use strictures 2;
+
+use Math::Random::Discrete ();
 use MIDI::Simple ();
 use List::Util qw(min);
 
-use Moo;
-use strictures 2;
 use namespace::clean;
 
 use constant TICKS => 96;
