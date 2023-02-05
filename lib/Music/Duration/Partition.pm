@@ -359,6 +359,21 @@ sub motifs {
     return @motifs;
 }
 
+=head2 add_to_score
+
+  $mdp->add_to_score($score, $motif);
+
+Return B<n> motifs.
+
+=cut
+
+sub add_to_score {
+    my ($self, $score, $motif, $notes) = @_;
+    for my $i (0 .. $#$motif) {
+        $score->n($motif->[$i], $notes->[$i]);
+    }
+}
+
 sub _duration {
     my ( $self, $name ) = @_;
 
