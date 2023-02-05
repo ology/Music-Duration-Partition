@@ -40,13 +40,12 @@ use constant TICKS => 96;
   my @motifs = $mdp->motifs; # list-ref of individual motifs
 
   # midi usage:
-  # use MIDI::Util (setup_score);
-  # use Music::Scales;
-  # my @scale = get_scale_MIDI('C', 4, 'major');
-  # my $score = setup_score();
-  # for my $n (0 .. 31) { # 32/8=4 loops over the motif
-  #   $score->n($motif->[$n % @$motif], $scale[int rand @scale]);
-  # }
+  # use List::Util qw(shuffle);
+  # use MIDI::Simple ();
+  # use Music::Scales qw(get_scale_MIDI);
+  # my $score = MIDI::Simple->new;
+  # my @notes = shuffle get_scale_MIDI('C', 4, 'major');
+  # $mdp->add_to_score($score, $motif, \@notes);
   # $score->write_score('motif.mid');
 
 =head1 DESCRIPTION
