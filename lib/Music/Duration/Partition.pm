@@ -345,6 +345,20 @@ sub motif {
     return $motif;
 }
 
+=head2 motifs
+
+  @motifs = $mdp->motifs($n);
+
+Return B<n> motifs.
+
+=cut
+
+sub motifs {
+    my ($self, $n) = @_;
+    my @motifs = map { $self->motif } 1 .. $n;
+    return @motifs;
+}
+
 sub _duration {
     my ( $self, $name ) = @_;
 
