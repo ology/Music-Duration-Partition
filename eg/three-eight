@@ -50,7 +50,7 @@ sub bass {
         pool    => [qw(dqn qn en sn)],
         weights => [   1,  2, 2, 1  ],
     );
-    my @motifs = map { $mdp->motif } 1 .. 4;
+    my @motifs = $mdp->motifs(4);
 
     my @pitches = get_scale_MIDI($note, $octave, $bscale);
     my @intervals = qw(-3 -2 -1 1 2 3);
@@ -71,7 +71,7 @@ sub top {
         pool    => [qw(qn en sn)],
         weights => [   1, 2, 3  ],
     );
-    my @motifs = map { $mdp->motif } 1 .. 8;
+    my @motifs = $mdp->motifs(8);
 
     my @pitches = (
         get_scale_MIDI($note, $octave + 1, $tscale),
