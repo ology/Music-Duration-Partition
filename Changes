@@ -1,6 +1,7 @@
 Revision history for Music-Duration-Partition
 
 {{$NEXT}}
+    - Add the add_to_score method.
     - Improve documentation.
     - Improve test file.
 
