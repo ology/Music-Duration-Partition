@@ -5,8 +5,6 @@ use warnings;
 use Test::More;
 use Test::Exception;
 
-use MIDI::Simple;
-
 use_ok 'Music::Duration::Partition';
 
 subtest throws => sub {
