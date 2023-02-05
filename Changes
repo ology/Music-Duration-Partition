@@ -2,6 +2,7 @@ Revision history for Music-Duration-Partition
 
 {{$NEXT}}
     - Why was this importing MIDI::Simple? Bah!
+    - Improve test file.
 
 0.0708 2022-10-23 12:33:49
     - Avoid implicit imports.
