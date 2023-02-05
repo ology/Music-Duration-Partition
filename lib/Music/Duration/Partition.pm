@@ -360,7 +360,7 @@ sub motifs {
 
 =head2 add_to_score
 
-  $mdp->add_to_score($score, $motif);
+  $mdp->add_to_score($score, $motif, $notes);
 
 Return B<n> motifs.
 
