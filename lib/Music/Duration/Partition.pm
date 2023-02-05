@@ -6,6 +6,7 @@ our $VERSION = '0.0800';
 
 use Moo;
 use strictures 2;
+use MIDI::Simple ();
 use Math::Random::Discrete ();
 use List::Util qw(min);
 use namespace::clean;
