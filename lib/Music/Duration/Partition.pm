@@ -27,16 +27,17 @@ use constant TICKS => 96;
   $mdp = Music::Duration::Partition->new(
     size    => 100,
     pool    => [qw(d50  d25)],
-    weights => [   0.7, 0.3], # optional
+    weights => [   0.7, 0.3 ], # optional
   );
 
   # the pool may also be grouped
   $mdp = Music::Duration::Partition->new(
     pool   => [qw(hn qn tqn)],
-    groups => [   1, 1, 3], # optional
+    groups => [   1, 1, 3   ], # optional
   );
 
-  my $motif = $mdp->motif; # Random list-ref of pool members
+  my $motif  = $mdp->motif;  # list-ref of pool members
+  my @motifs = $mdp->motifs; # list-ref of individual motifs
 
   # midi usage:
   # use MIDI::Util (setup_score);
