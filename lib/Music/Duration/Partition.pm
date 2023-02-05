@@ -14,9 +14,7 @@ use constant TICKS => 96;
 
 =head1 SYNOPSIS
 
-  use MIDI::Simple ();
   use Music::Duration::Partition;
-  use Music::Scales;
 
   my $mdp = Music::Duration::Partition->new(
     size => 8,                  # 2 measures in 4/4 time
@@ -24,30 +22,30 @@ use constant TICKS => 96;
     pool_select => sub { my $self = shift; ... }, # optional
   );
 
-  my $motif = $mdp->motif; # Random list-ref of pool members
-
-  my @scale = get_scale_MIDI('C', 4, 'major');
-
-  my $score = MIDI::Simple->new_score;
-
-  for my $n (0 .. 31) { # 32/8=4 loops over the motif
-    $score->n($motif->[$n % @$motif], $scale[int rand @scale]);
-  }
-
-  $score->write_score('motif.mid');
-
-  # The pool may also be weighted
+  # the pool may also be weighted
   $mdp = Music::Duration::Partition->new(
     size    => 100,
     pool    => [qw(d50  d25)],
     weights => [   0.7, 0.3], # optional
   );
 
-  # The pool may also be grouped
+  # the pool may also be grouped
   $mdp = Music::Duration::Partition->new(
     pool   => [qw(hn qn tqn)],
     groups => [   1, 1, 3], # optional
   );
+
+  my $motif = $mdp->motif; # Random list-ref of pool members
+
+  # midi usage:
+  # use MIDI::Util (setup_score);
+  # use Music::Scales;
+  # my @scale = get_scale_MIDI('C', 4, 'major');
+  # my $score = setup_score();
+  # for my $n (0 .. 31) { # 32/8=4 loops over the motif
+  #   $score->n($motif->[$n % @$motif], $scale[int rand @scale]);
+  # }
+  # $score->write_score('motif.mid');
 
 =head1 DESCRIPTION
 
