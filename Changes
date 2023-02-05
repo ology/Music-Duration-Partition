@@ -1,12 +1,12 @@
 Revision history for Music-Duration-Partition
 
 {{$NEXT}}
+    - Use the new add_to_score method in eg/ programs.
 
 0.0802 2023-02-05 14:39:44
     - Add the add_to_score method.
     - Improve documentation.
     - Improve test file.
-    - Use the new add_to_score method in eg/ programs.
 
 0.0801 2023-02-05 12:15:30
     - Oh yeah! MIDI::Simple is needed for the Length hash! Derp
