@@ -20,7 +20,6 @@ use constant TICKS => 96;
   my $mdp = Music::Duration::Partition->new(
     size => 8,                  # 2 measures in 4/4 time
     pool => [qw(hn dqn qn en)], # Made from these durations
-    pool_select => sub { my $self = shift; ... }, # optional
   );
 
   # the pool may also be weighted
