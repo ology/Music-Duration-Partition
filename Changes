@@ -2,6 +2,7 @@ Revision history for Music-Duration-Partition
 
 {{$NEXT}}
     - Use the new add_to_score method in eg/ programs.
+    - Test the add_to_score method!
 
 0.0802 2023-02-05 14:39:44
     - Add the add_to_score method.
