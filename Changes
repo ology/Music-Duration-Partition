@@ -1,7 +1,7 @@
 Revision history for Music-Duration-Partition
 
 {{$NEXT}}
-    - Oh yeah! MIDI::Simple is needed for the Length hash!
+    - Oh yeah! MIDI::Simple is needed for the Length hash! Derp
 
 0.0800 2023-02-05 12:02:24
     - Why was this importing MIDI::Simple? Bah!
