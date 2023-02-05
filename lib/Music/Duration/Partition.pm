@@ -359,16 +359,16 @@ sub motifs {
 
 =head2 add_to_score
 
-  $mdp->add_to_score($score, $motif, $notes);
+  $mdp->add_to_score($score, $motif, $pitches);
 
-Add the B<motif> and B<notes> to the B<score>.
+Add the B<motif> and B<pitches> to the B<score>.
 
 =cut
 
 sub add_to_score {
-    my ($self, $score, $motif, $notes) = @_;
+    my ($self, $score, $motif, $pitches) = @_;
     for my $i (0 .. $#$motif) {
-        $score->n($motif->[$i], $notes->[$i]);
+        $score->n($motif->[$i], $pitches->[$i]);
     }
 }
 
