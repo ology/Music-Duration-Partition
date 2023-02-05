@@ -361,7 +361,7 @@ sub motifs {
 
   $mdp->add_to_score($score, $motif, $notes);
 
-Return B<n> motifs.
+Add the B<motif> and B<notes> to the B<score>.
 
 =cut
 
