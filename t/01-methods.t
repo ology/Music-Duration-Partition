@@ -28,8 +28,7 @@ subtest defaults => sub {
 };
 
 subtest motif => sub {
-    my $mdp = new_ok 'Music::Duration::Partition';
-    $mdp = new_ok 'Music::Duration::Partition' => [ pool => [qw/ wn /] ];
+    my $mdp = new_ok 'Music::Duration::Partition' => [ pool => [qw/ wn /] ];
     is_deeply $mdp->motif, ['wn'], 'motif';
 
     $mdp = new_ok 'Music::Duration::Partition' => [
@@ -72,6 +71,11 @@ subtest motif => sub {
 
     $mdp = new_ok 'Music::Duration::Partition' => [ pool => [qw/ dhn /] ];
     is_deeply $mdp->motif, [qw/ dhn d96 /], 'remainder';
+};
+
+subtest motifs => sub {
+    my $mdp = new_ok 'Music::Duration::Partition' => [ pool => [qw/ wn /] ];
+    is_deeply [ $mdp->motifs(2) ], [ ['wn'],['wn'] ], 'motifs';
 };
 
 done_testing();
