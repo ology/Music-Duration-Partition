@@ -6,11 +6,8 @@ our $VERSION = '0.0708';
 
 use Moo;
 use strictures 2;
-
 use Math::Random::Discrete ();
-use MIDI::Simple ();
 use List::Util qw(min);
-
 use namespace::clean;
 
 use constant TICKS => 96;
