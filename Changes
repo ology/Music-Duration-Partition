@@ -1,6 +1,8 @@
 Revision history for Music-Duration-Partition
 
 {{$NEXT}}
+
+0.0803 2023-02-05 14:56:41
     - Use the new add_to_score method in eg/ programs.
 
 0.0802 2023-02-05 14:39:44
