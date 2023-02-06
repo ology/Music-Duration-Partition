@@ -19,7 +19,7 @@ use constant TICKS => 96;
 
   my $mdp = Music::Duration::Partition->new(
     size => 8,                  # 2 measures in 4/4 time
-    pool => [qw(hn dqn qn en)], # Made from these durations
+    pool => [qw(hn dqn qn en)], # made from these durations
   );
 
   # the pool may also be weighted
