@@ -36,7 +36,7 @@ use constant TICKS => 96;
   );
 
   my $motif  = $mdp->motif;  # list-ref of pool members
-  my @motifs = $mdp->motifs; # list of individual motifs
+  my @motifs = $mdp->motifs; # list of motifs
 
   # midi usage:
   # use List::Util qw(shuffle);
