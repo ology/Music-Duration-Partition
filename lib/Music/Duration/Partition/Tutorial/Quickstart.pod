@@ -1,0 +1,42 @@
+package Music::Duration::Partition::Tutorial::Quickstart;
+
+=head1 Import the Module
+
+  use Music::Duration::Partition ();
+
+=head1 Object Instantiation
+
+=head2 Use the defaults
+
+  my $mdp = Music::Duration::Partition->new;
+
+=head2 Attribute configuration
+
+  my $mdp = Music::Duration::Partition->new(
+      size      => 4,
+      pool      => [qw(hn dqn qn en)],
+      weights   => [    1,  1, 2, 1 ],
+      groups    => [    1,  1, 1, 2 ],
+      remainder => 1,
+      verbose   => 1,
+  );
+
+=head1 And Finally...
+
+We need to write-out the score to a MIDI file.
+
+  $d->write;
+
+=head1 MIDI Playback
+
+Use the venerable command-line program,
+L<timidity++|https://timidity.sourceforge.net/|>,
+which is likely available through your package manager (e.g. apt,
+homebrew). You can also use the excellent, cross platform program,
+L<VLC|https://www.videolan.org/vlc/|>.
+
+  > timidity drums.mid
+
+Easy!
+
+=cut
