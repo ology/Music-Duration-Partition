@@ -54,6 +54,9 @@ Retun a set of motifs.
 
   my @pitches = get_scale_MIDI('C', 4, 'major');
 
+Use the scale method to get a set of pitches, in the key of C major in
+the fourth octave.
+
 =head2 Gather Voices at Random
 
   my @voices;
