@@ -21,27 +21,29 @@
 
 ----
 
-<h2 class="display-1 text-center pb-3">Quick Examples</h2>
+<h2 class="display-1 text-center pb-3">Quick Example</h2>
 
 <div class="row">
   <div class="col-lg-6">
     <h3>Example 1</h3>
-    <pre><code>use Music::Duration::Partition ();
+    <pre><code>use MIDI::Util qw(setup_score);
+use Music::Duration::Partition ();
+use Music::Scales qw(get_scale_MIDI);
 
-my $obj = Music::Duration::Partition->new;
+my $score = setup_score();
 
-</code></pre>
+my $mdp = Music::Duration::Partition->new(
+    pool => [qw(hn dqn qn en)],
+);
+
+my $motif = $mdp->motif;
+
+my @pitches = get_scale_MIDI('C', 4, 'major');
+
+$mdp->add_to_score($score, $motif, \@pitches);
+
+$score->write_score('duration-partition.mid');</code></pre>
   </div>
-
-  <div class="col-lg-6">
-    <h3>Example 2</h3>
-    <pre><code>use Music::Duration::Partition ();
-
-my $obj = Music::Duration::Partition->new;
-
-</code></pre>
-  </div>
-
 </div>
 
 ----
