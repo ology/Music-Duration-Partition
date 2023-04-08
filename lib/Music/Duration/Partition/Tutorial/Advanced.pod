@@ -84,4 +84,35 @@ method.
       return \@scale, $genf;
   }
 
+=head2 Weights and Grouping
+
+Triplet durations will be twice as likely to be chosen, and be played
+in groups of 3.
+
+  use MIDI::Util qw(setup_score);
+  use Music::Duration::Partition ();
+  use Music::Scales qw(get_scale_MIDI);
+
+  my $score = setup_score(bpm => 120);
+
+  my @scale = get_scale_MIDI('C', 4, 'major');
+
+  my $mdp = Music::Duration::Partition->new(
+      size    => 8,
+      pool    => [qw(hn qn ten)],
+      weights => [   1, 1, 2   ],
+      groups  => [   1, 1, 3   ],
+      verbose => 1,
+  );
+
+  my $motif = $mdp->motif;
+
+  for my $i (1 .. 4) {
+      for my $n (0 .. $#$motif) {
+          $score->n($motif->[$n], $scale[ int rand @scale ]);
+      }
+  }
+
+  $score->n('wn', $scale[0]);
+
 =cut
