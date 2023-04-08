@@ -1,0 +1,22 @@
+- name: installation
+  title: Installation
+  source: _pages/installation.md
+- name: docs
+  title: Tutorial
+  children:
+    - name: tutorial/quickstart
+      title: Quick-start
+      icon: '<i class="fa-solid fa-bicycle"></i>'
+      pod: Music::Duration::Partition::Tutorial::Quickstart
+    - name: tutorial/advanced
+      title: Advanced
+      icon: '<i class="fa-solid fa-jet-fighter"></i>'
+      pod: Music::Duration::Partition::Tutorial::Advanced
+- name: metacpan
+  title: On CPAN
+  icon: '<i class="fa-solid fa-circle-dot"></i>'
+  target: '_blank'
+- name: github
+  title: On GitHub
+  icon: '<i class="fa-brands fa-github"></i>'
+  target: '_blank'

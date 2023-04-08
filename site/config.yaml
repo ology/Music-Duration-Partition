@@ -1,0 +1,14 @@
+name: Music-Duration-Partition
+abstract: 'Frobnicate Universes'
+abstract_html: 'Frobnicate Universes'
+github: https://github.com/ology/Music-Duration-Partition
+issues: https://github.com/ology/Music-Duration-Partition/issues
+copyright: "Copyright © 2023 Gene Boggs. All rights reserved."
+theme:
+  light: "#e5e5e5"
+  dark: "#457b9d"
+  primary: "#457b9d"
+  secondary: "#31587a"
+root_url: https://ology.github.io/music-duration-partition-tutorial/
+homepage:
+  banner: ''
