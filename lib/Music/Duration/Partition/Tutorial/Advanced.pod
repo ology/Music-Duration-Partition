@@ -1,0 +1,44 @@
+package Music::Duration::Partition::Tutorial::Quickstart;
+
+=head1 Usage Examples
+
+=head2 Shuffling the Motif
+
+By shuffling a single generated motif, you can get the permutations of
+the durations.
+
+  use List::Util qw/ shuffle /;
+  use MIDI::Util qw(setup_score);
+  use Music::Duration::Partition;
+  use Music::Scales;
+
+  my $score = setup_score(bpm => 90);
+
+  my @scale = get_scale_MIDI( 'A', 3, 'pminor' );
+
+  # instantiate a 4 beat phrase generator
+  my $mdp = Music::Duration::Partition->new(
+      size => 4,
+      pool => [qw/ qn en sn /],
+      #pool => [qw/ twn thn tqn ten tsn /],
+  );
+
+  # get a single motif of note durations
+  my $motif = $mdp->motif;
+
+  # repeat 2 measures, 8 times
+  for my $i ( 1 .. 8 ) {
+      # get a fresh set of random scale pitches for the motif
+      my @voices = map { $scale[ int rand @scale ] } 0 .. $#$motif;
+
+      # every other measure, shuffle the motif durations
+      my @phrase = $i % 2 ? @$motif : shuffle @$motif;
+
+      $mdp->add_to_score($score, \@phrase, \@voices);
+
+      $score->r('wn');
+  }
+
+  $score->write_score('shuffled.mid');
+
+=cut
