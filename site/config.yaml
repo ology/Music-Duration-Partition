@@ -1,6 +1,6 @@
 name: Music-Duration-Partition
-abstract: 'Frobnicate Universes'
-abstract_html: 'Frobnicate Universes'
+abstract: 'Partition a Musical Duration into Rhythmic Phrases'
+abstract_html: 'Partition a Musical Duration into Rhythmic Phrases'
 github: https://github.com/ology/Music-Duration-Partition
 issues: https://github.com/ology/Music-Duration-Partition/issues
 copyright: "Copyright © 2023 Gene Boggs. All rights reserved."
