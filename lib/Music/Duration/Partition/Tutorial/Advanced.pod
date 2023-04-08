@@ -141,7 +141,7 @@ and rest for the 4th. Also play a steady closed hi-hat simultaneously.
           pool => [qw(qn en sn)],
       );
 
-      my @motifs = map { $mdp->motif } 1 .. 2;
+      my @motifs = $mdp->motifs(2);
 
       my @pitches = get_scale_MIDI('A', 2, 'pminor');
 
