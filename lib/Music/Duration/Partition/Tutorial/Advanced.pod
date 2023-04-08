@@ -126,7 +126,7 @@ and rest for the 4th. Also play a steady closed hi-hat simultaneously.
   use Music::Scales qw(get_scale_MIDI);
   use Music::VoiceGen ();
 
-  my $d = MIDI::Drummer::Tiny->new(file => 'bass.mid');
+  my $d = MIDI::Drummer::Tiny->new(file => 'figured.mid');
 
   $d->sync(
       \&beat, # must come first so the channel is 9
