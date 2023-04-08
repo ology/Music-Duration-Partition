@@ -68,7 +68,12 @@ Retun a set of motifs.
       push @voices, \@notes;
   }
 
-=head1 add_to_score()
+Here the voices to be played, are collected. They correspond directly
+to motif entries.
+
+=head1 Finish
+
+=head2 add_to_score()
 
   for my $n (0 .. $#motifs) {
       $mdp->add_to_score($score, $motifs[$n], $voices[$n]);
@@ -77,7 +82,7 @@ Retun a set of motifs.
 Loop over the indices of the motifs and voices, adding each to the
 score.
 
-=head1 And Finish
+=head2 And Write
 
   $score->write_score('duration-partition.mid');
 
