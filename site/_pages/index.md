@@ -16,7 +16,7 @@
   <h3>Motif Generation</h3>
   <p>Create single or multiple rhythmic phrases ("motifs").</p>
   <h3>Score Interaction</h3>
-  <p>Handy method to add a motif and corresponding voices to a score.</p>
+  <p>Add a motif and corresponding voices to a score.</p>
 </div>
 
 ----
@@ -25,7 +25,7 @@
 
 <div class="row">
   <div class="col-lg-6">
-    <h3>Example 1</h3>
+    <h3>Basic Usage</h3>
     <pre><code>use MIDI::Util qw(setup_score);
 use Music::Duration::Partition ();
 use Music::Scales qw(get_scale_MIDI);
