@@ -118,7 +118,7 @@ in groups of 3.
 =head2 Figured Bass
 
 Play a an alternating, randomized bass-line of 2 motifs, for 3 beats
-and rest for the 4th.
+and rest for the 4th. Also play a steady closed hi-hat.
 
   use MIDI::Drummer::Tiny ();
   use MIDI::Util qw(setup_score);
