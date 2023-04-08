@@ -1,4 +1,4 @@
-package Music::Duration::Partition::Tutorial::Quickstart;
+package Music::Duration::Partition::Tutorial::Advanced;
 
 =head1 Usage Examples
 
