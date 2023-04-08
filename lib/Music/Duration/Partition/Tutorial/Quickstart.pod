@@ -85,7 +85,7 @@ motif entries.
   }
 
 Loop over the indices of the motifs and voices, adding each to the
-score, four times repeated.
+score, repeated four times.
 
 =head2 And Write
 
