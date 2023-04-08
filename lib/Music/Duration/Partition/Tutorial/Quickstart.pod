@@ -1,8 +1,22 @@
 package Music::Duration::Partition::Tutorial::Quickstart;
 
-=head1 Import the Module
+=head1 Setup
+
+=head2 Import the MIDI::Util Module
+
+  use MIDI::Util qw(setup_score);
+
+=head2 Import the Music::Duration::Partition Module
 
   use Music::Duration::Partition ();
+
+=head2 Import the Musical Scales Module
+
+  uses Music::Scales qw(get_scale_MIDI);
+
+=head2 Get a Score
+
+  my $score = setup_score();
 
 =head1 Object Instantiation
 
@@ -34,10 +48,52 @@ For this module, a motif is an ordered set of rhythmic durations.
 
 Retun a set of motifs.
 
-=head2 add_to_score()
+=head1 Voices
 
-  $mdp->add_to_score($score, $motif, $pitches);
+=head2 Get some Pitches
 
-This method adds a motif and corresponding pitches to the score.
+  my @pitches = get_scale_MIDI('C', 4, 'major');
+
+=head2 Gather the Voices at Random
+
+  my @voices;
+
+  for my $m (@motifs) {
+      my @notes;
+
+      for my $i (@$m) {
+          my $pitch = $pitches[ int rand @pitches ];
+          push @notes, $pitch;
+      }
+
+      push @voices, \@notes;
+  }
+
+=head1 add_to_score()
+
+  for my $n (0 .. $#motifs) {
+      $mdp->add_to_score($score, $motifs[$n], $voices[$n]);
+  }
+
+Loop over the indices of the motifs and voices, adding each to the
+score.
+
+=head1 And Finish
+
+  $score->write_score('duration-partition.mid');
+
+Write the score out to a MIDI file.
+
+=head1 MIDI Playback
+
+Use the venerable command-line program,
+L<timidity++|https://timidity.sourceforge.net/|>,
+which is likely available through your package manager (e.g. apt,
+homebrew). You can also use the excellent, cross platform program,
+L<VLC|https://www.videolan.org/vlc/|>.
+
+  > timidity drums.mid
+
+Easy!
 
 =cut
