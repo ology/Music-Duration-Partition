@@ -48,7 +48,7 @@ For this module, a motif is an ordered set of rhythmic durations.
 
 Retun a set of motifs.
 
-=head1 Voices
+=head1 Pitches/Notes/Voices
 
 =head2 Get some Pitches
 
