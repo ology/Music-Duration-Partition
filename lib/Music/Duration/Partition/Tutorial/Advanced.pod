@@ -129,11 +129,17 @@ and rest for the 4th. Also play a steady closed hi-hat simultaneously.
   my $d = MIDI::Drummer::Tiny->new(file => 'bass.mid');
 
   $d->sync(
-      \&bottom,
       \&beat,
+      \&bass,
   );
 
   $d->write;
+
+  sub beat {
+      for my $n (1 .. 8) {
+          $d->note($d->quarter, $d->closed_hh) for 1 .. 4;
+      }
+  }
 
   sub bass {
       my $mdp = Music::Duration::Partition->new(
@@ -162,12 +168,6 @@ and rest for the 4th. Also play a steady closed hi-hat simultaneously.
           }
 
           $d->rest($d->quarter);
-      }
-  }
-
-  sub beat {
-      for my $n (1 .. 8) {
-          $d->note($d->quarter, $d->closed_hh) for 1 .. 4;
       }
   }
 
