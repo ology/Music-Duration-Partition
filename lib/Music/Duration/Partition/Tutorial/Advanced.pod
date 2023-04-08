@@ -117,8 +117,8 @@ in groups of 3.
 
 =head2 Figured Bass
 
-Play a randomized bass-line of 2 motifs, for 3 beats and rest for the
-4th.
+Play a an alternating, randomized bass-line of 2 motifs, for 3 beats
+and rest for the 4th.
 
   use MIDI::Util qw(setup_score);
   use Music::Duration::Partition ();
