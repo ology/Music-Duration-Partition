@@ -17,22 +17,27 @@ package Music::Duration::Partition::Tutorial::Quickstart;
       verbose   => 1,
   );
 
-=head1 And Finally...
+=head1 Motifs
 
-We need to write-out the score to a MIDI file.
+=head2 motif()
 
-  $d->write;
+  my $motif = $mdp->motif; # e.g. []
 
-=head1 MIDI Playback
+A "motif" is (usually) a short phrase that is used in the development
+or progression of a piece of music.
 
-Use the venerable command-line program,
-L<timidity++|https://timidity.sourceforge.net/|>,
-which is likely available through your package manager (e.g. apt,
-homebrew). You can also use the excellent, cross platform program,
-L<VLC|https://www.videolan.org/vlc/|>.
+For this module, a motif is an ordered set of rhythmic durations.
 
-  > timidity drums.mid
+=head2 motifs()
 
-Easy!
+  my @motifs = $mdp->motifs(4);
+
+Retun a set of motifs.
+
+=head2 add_to_score()
+
+  $mdp->add_to_score($score, $motif, $pitches);
+
+This method adds a motif and corresponding pitches to the score.
 
 =cut
