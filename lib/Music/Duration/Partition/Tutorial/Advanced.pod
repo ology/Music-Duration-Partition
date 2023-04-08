@@ -120,39 +120,48 @@ in groups of 3.
 Play a an alternating, randomized bass-line of 2 motifs, for 3 beats
 and rest for the 4th.
 
+  use MIDI::Drummer::Tiny ();
   use MIDI::Util qw(setup_score);
   use Music::Duration::Partition ();
   use Music::Scales qw(get_scale_MIDI);
   use Music::VoiceGen ();
 
-  my $score = setup_score(bpm => 110);
+  my $d = MIDI::Drummer::Tiny->new;
 
-  my $mdp = Music::Duration::Partition->new(
-      size => 3,
-      pool => [qw(qn en sn)],
-  );
+  sub bass {
+      my $mdp = Music::Duration::Partition->new(
+          size => 3,
+          pool => [qw(qn en sn)],
+      );
 
-  my @motifs = map { $mdp->motif } 1 .. 2;
+      my @motifs = map { $mdp->motif } 1 .. 2;
 
-  my @pitches = get_scale_MIDI('A', 2, 'pminor');
+      my @pitches = get_scale_MIDI('A', 2, 'pminor');
 
-  my $voice = Music::VoiceGen->new(
-      pitches   => \@pitches,
-      intervals => [qw/-4 -3 -2 2 3 4/],
-  );
+      my $voice = Music::VoiceGen->new(
+          pitches   => \@pitches,
+          intervals => [qw/-4 -3 -2 2 3 4/],
+      );
 
-  my @notes1 = map { $voice->rand } $motifs[0]->@*;
+      my @notes1 = map { $voice->rand } $motifs[0]->@*;
 
-  for my $i (1 .. 8) {
-      if ($i % 2) {
-          $mdp->add_to_score($score, $motifs[0], \@notes1);
+      for my $i (1 .. 8) {
+          if ($i % 2) {
+              $mdp->add_to_score($d->score, $motifs[0], \@notes1);
+          }
+          else {
+              my @notes2 = map { $voice->rand } $motifs[1]->@*;
+              $mdp->add_to_score($d->score, $motifs[1], \@notes2);
+          }
+
+          $d->score->r('qn');
       }
-      else {
-          my @notes2 = map { $voice->rand } $motifs[1]->@*;
-          $mdp->add_to_score($score, $motifs[1], \@notes2);
-      }
+  }
 
-      $score->r('qn');
+  sub beat {
+      for my $n (1 .. 8) {
+          $d->note($d->quarter, $d->closed_hh) for 1 .. 4;
+      }
   }
 
 =cut
