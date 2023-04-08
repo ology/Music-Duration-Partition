@@ -38,9 +38,11 @@ my $mdp = Music::Duration::Partition->new(
 
 my $motif = $mdp->motif;
 
-my @pitches = get_scale_MIDI('C', 4, 'major');
+my @scale = get_scale_MIDI('C', 4, 'major');
 
-$mdp->add_to_score($score, $motif, \@pitches);
+my @voices = map { $scale[ int rand @scale ] } @$motif;
+
+$mdp->add_to_score($score, $motif, \@voices);
 
 $score->write_score('duration-partition.mid');</code></pre>
   </div>
