@@ -175,4 +175,63 @@ and rest for the 4th. Also play a steady closed hi-hat simultaneously.
 
 =head2 7/8 Time
 
+In C<x/8> time, the Music::Duration::Partition C<size> must be the
+number of beats (i.e. 7 here) divided by 2.
+
+  use MIDI::Drummer::Tiny ();
+  use MIDI::Util qw(set_chan_patch);
+  use Music::Duration::Partition ();
+  use Music::Scales qw(get_scale_MIDI);
+  use Music::VoiceGen ();
+
+  my $d = MIDI::Drummer::Tiny->new(
+      file      => 'odd-meter.mid',
+      bpm       => 90,
+      signature => '7/8',
+      bars      => 8,
+  );
+
+  $d->sync(
+      \&drums,
+      \&bass,
+  );
+
+  $d->write;
+
+  sub drums {
+      $d->metronome78($d->bars * 2);
+  }
+
+  sub bass {
+      set_chan_patch($d->score, 0, 35);
+
+      my $mdp = Music::Duration::Partition->new(
+          size   => 3.5, # = 7/2
+          pool   => [qw(qn en)],
+          groups => [   1, 2  ],
+      );
+      my $motif1 = $mdp->motif;
+      my $motif2 = $mdp->motif;
+
+      my @pitches = get_scale_MIDI('C', 1, 'pminor');
+      my @intervals = qw(-3 -2 -1 1 2 3);
+      my $voice = Music::VoiceGen->new(
+          pitches   => \@pitches,
+          intervals => \@intervals,
+      );
+      my @notes1 = map { $voice->rand } @$motif1;
+      my @notes2 = map { $voice->rand } @$motif2;
+
+      for my $n (1 .. $d->bars) {
+          for my $i (0 .. $#$motif1) {
+              $d->note($motif1->[$i], $n % 2 ? $notes1[$i] : $notes2[$i]);
+          }
+          for my $i (0 .. $#$motif2) {
+              $d->note($motif2->[$i], $n % 2 ? $notes1[$i] : $notes2[$i]);
+          }
+      }
+
+      $d->note($d->whole, $pitches[0]);
+  }
+
 =cut
