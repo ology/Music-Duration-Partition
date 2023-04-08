@@ -129,7 +129,7 @@ and rest for the 4th. Also play a steady closed hi-hat simultaneously.
   my $d = MIDI::Drummer::Tiny->new(file => 'bass.mid');
 
   $d->sync(
-      \&beat,
+      \&beat, # must come first so the channel is 9
       \&bass,
   );
 
