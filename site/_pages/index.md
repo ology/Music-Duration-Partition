@@ -24,7 +24,7 @@
 <h2 class="display-1 text-center pb-3">Quick Example</h2>
 
 <div class="row">
-  <div class="col-lg-6">
+  <div class="col-lg-12">
     <h3>Basic Usage</h3>
     <pre><code>use MIDI::Util qw(setup_score);
 use Music::Duration::Partition ();
