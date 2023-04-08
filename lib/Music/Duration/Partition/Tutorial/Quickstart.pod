@@ -47,7 +47,7 @@ For this module, a motif is an ordered set of rhythmic durations.
 
   my @motifs = $mdp->motifs(4);
 
-Retun a set of motifs.
+Return a set of motifs.
 
 =head1 Pitches == Notes == Voices
 
