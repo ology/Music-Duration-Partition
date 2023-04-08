@@ -11,7 +11,7 @@
 <div class="text-center">
   <h2 class="display-1">Features of the Module</h2>
   <h3>Durations</h3>
-  <p>MIDI-Perl length pool aliases, 'hn' = half-note, 'qn' = quarter-note, 'ten' = triplet eighth note, etc.</p>
+  <p>MIDI-Perl length pool aliases, 'hn' = half-note, 'qn' = quarter-note, 'ten' = triplet eighth-note, etc.</p>
   <p>Fine-grained duration control specification with 'd' . number of "ticks." And there are 96 ticks per quarter-note, by default.</p>
   <h3>Motif Generation</h3>
   <p>Create single or multiple rhythmic phrases ("motifs").</p>
