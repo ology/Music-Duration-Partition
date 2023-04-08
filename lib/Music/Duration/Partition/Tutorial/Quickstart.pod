@@ -36,7 +36,7 @@ package Music::Duration::Partition::Tutorial::Quickstart;
 =head2 motif()
 
   my $a_motif = $mdp->motif;
-  # e.g. ['qn','en'en','hn','qn','qn','dqn','en']
+  # e.g. ['qn','en','en','hn','qn','qn','dqn','en']
 
 A "motif" is (usually) a short phrase that is used in the development
 or progression of a piece of music.
