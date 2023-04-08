@@ -71,8 +71,8 @@ the fourth octave.
       push @voices, \@notes;
   }
 
-Here the voices to be played, are collected. They correspond directly
-to motif entries.
+Here the voices to be played, are collected and correspond directly to
+motif entries.
 
 =head1 Finish
 
