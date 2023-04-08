@@ -66,7 +66,7 @@ the fourth octave.
       my @notes;
 
       for my $i (@$motif) {
-          push @notes, $pitches[ int rand @pitches ]; 
+          push @notes, $pitches[ int rand @pitches ];
       }
 
       push @voices, \@notes;
