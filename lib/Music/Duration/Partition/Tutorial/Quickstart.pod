@@ -9,7 +9,7 @@ package Music::Duration::Partition::Tutorial::Quickstart;
 =head2 Attribute configuration
 
   my $mdp = Music::Duration::Partition->new(
-      size      => 4,
+      size      => 8,
       pool      => [qw(hn dqn qn en)],
       weights   => [    1,  1, 2, 1 ],
       groups    => [    1,  1, 1, 2 ],
