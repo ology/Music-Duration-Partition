@@ -96,7 +96,7 @@ which is likely available through your package manager (e.g. apt,
 homebrew). You can also use the excellent, cross platform program,
 L<VLC|https://www.videolan.org/vlc/|>.
 
-  > timidity drums.mid
+  > timidity duration-partition.mid
 
 Easy!
 
