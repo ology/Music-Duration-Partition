@@ -7,27 +7,27 @@ package Music::Duration::Partition::Tutorial::Quickstart;
 By shuffling a single generated motif, you can get the permutations of
 the durations.
 
-  use List::Util qw/ shuffle /;
+  use List::Util qw(shuffle);
   use MIDI::Util qw(setup_score);
-  use Music::Duration::Partition;
-  use Music::Scales;
+  use Music::Duration::Partition ();
+  use Music::Scales qw(get_scale_MIDI);
 
   my $score = setup_score(bpm => 90);
 
-  my @scale = get_scale_MIDI( 'A', 3, 'pminor' );
+  my @scale = get_scale_MIDI('A', 3, 'pminor');
 
   # instantiate a 4 beat phrase generator
   my $mdp = Music::Duration::Partition->new(
       size => 4,
-      pool => [qw/ qn en sn /],
-      #pool => [qw/ twn thn tqn ten tsn /],
+      pool => [qw(qn en sn)],
+      #pool => [qw(twn thn tqn ten tsn)],
   );
 
   # get a single motif of note durations
   my $motif = $mdp->motif;
 
   # repeat 2 measures, 8 times
-  for my $i ( 1 .. 8 ) {
+  for my $i (1 .. 8) {
       # get a fresh set of random scale pitches for the motif
       my @voices = map { $scale[ int rand @scale ] } 0 .. $#$motif;
 
@@ -40,5 +40,48 @@ the durations.
   }
 
   $score->write_score('shuffled.mid');
+
+=head2 Computing Voices
+
+Play the same motif but with different voices computed by the Voss
+method.
+
+  use MIDI::Util qw(setup_score);
+  use Music::Duration::Partition ();
+  use Music::Scales qw(get_scale_MIDI);
+  use Music::Voss qw(powers);
+
+  my $score = setup_score(bpm => 90);
+
+  my $mdp = Music::Duration::Partition->new(
+      size => 4,
+      pool => [qw(qn en sn)],
+  );
+
+  my $motif = $mdp->motif;
+
+  # get the scale and compute the generating function
+  my ($scale, $genf) = voss('A', 5, 'minor');
+
+  for my $i (1 .. 8) {
+      my @voices = map { $scale->[ $genf->($_) % @$scale ] } 0 .. $#$motif;
+
+      $mdp->add_to_score($score, $motif, \@voices);
+
+      $score->r('wn');
+  }
+
+  $score->write_score('shuffled.mid');
+
+  sub voss {
+      my ($note, $octave, $named) = @_;
+
+      my @scale = get_scale_MIDI($note, $octave, $named);
+
+      my $seed = [ map { sub { int rand 2 } } @scale ];
+      my $genf = powers(calls => $seed);
+
+      return \@scale, $genf;
+  }
 
 =cut
