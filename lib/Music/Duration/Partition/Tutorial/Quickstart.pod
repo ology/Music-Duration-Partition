@@ -12,7 +12,7 @@ package Music::Duration::Partition::Tutorial::Quickstart;
 
 =head2 Import the Musical Scales Module
 
-  uses Music::Scales qw(get_scale_MIDI);
+  use Music::Scales qw(get_scale_MIDI);
 
 =head2 Get a Score
 
