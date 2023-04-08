@@ -1,6 +1,6 @@
 <div class="text-center">
-  <h2 class="display-1">Module Description</h2>
-  <p class="lead">Music::Duration::Partition is a Perl module that implements ...</p>
+  <h2 class="display-1">Description</h2>
+  <p class="lead">Music::Duration::Partition is a Perl module that partitions a musical duration into randomized rhythmic phrases.</p>
   <p class="pt-5">
     <img alt="GitHub Issues" src="https://img.shields.io/github/issues/ology/Music-Duration-Partition" title="GitHub Issues">
   </p>
@@ -9,21 +9,14 @@
 ----
 
 <div class="text-center">
-  <h2 class="display-1">Title 1</h2>
-  <h3>Blah</h3>
-  <p>Lorem ispum, etc.</p>
-  <h3>Blah</h3>
-  <p>Lorem ispum, etc.</p>
-</div>
-
-----
-
-<div class="text-center">
-  <h2 class="display-1">Title 2</h2>
-  <h3>Blah</h3>
-  <p>Lorem ispum, etc.</p>
-  <h3>Blah</h3>
-  <p>Lorem ispum, etc.</p>
+  <h2 class="display-1">Features of the Module</h2>
+  <h3>Durations</h3>
+  <p>MIDI-Perl length pool aliases, 'hn' = half-note, 'qn' = quarter-note, 'ten' = triplet eighth note, etc.</p>
+  <p>Fine-grained duration control specification with 'd' . number of "ticks." And there are 96 ticks per quarter-note, by default.</p>
+  <h3>Motif Generation</h3>
+  <p>Create single or multiple rhythmic phrases ("motifs").</p>
+  <h3>Score Interaction</h3>
+  <p>Handy method to add a motif and corresponding voices to a score.</p>
 </div>
 
 ----
