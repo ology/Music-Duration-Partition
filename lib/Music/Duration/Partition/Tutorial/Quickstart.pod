@@ -62,8 +62,7 @@ Retun a set of motifs.
       my @notes;
 
       for my $i (@$m) {
-          my $pitch = $pitches[ int rand @pitches ];
-          push @notes, $pitch;
+          push @notes, $pitches[ int rand @pitches ]; 
       }
 
       push @voices, \@notes;
