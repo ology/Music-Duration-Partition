@@ -126,7 +126,14 @@ and rest for the 4th. Also play a steady closed hi-hat.
   use Music::Scales qw(get_scale_MIDI);
   use Music::VoiceGen ();
 
-  my $d = MIDI::Drummer::Tiny->new;
+  my $d = MIDI::Drummer::Tiny->new(file => 'bass.mid');
+
+  $d->sync(
+      \&bottom,
+      \&beat,
+  );
+
+  $d->write;
 
   sub bass {
       my $mdp = Music::Duration::Partition->new(
