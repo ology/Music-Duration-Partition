@@ -62,10 +62,10 @@ the fourth octave.
 
   my @voices;
 
-  for my $m (@motifs) {
+  for my $motif (@motifs) {
       my @notes;
 
-      for my $i (@$m) {
+      for my $i (@$motif) {
           push @notes, $pitches[ int rand @pitches ]; 
       }
 
