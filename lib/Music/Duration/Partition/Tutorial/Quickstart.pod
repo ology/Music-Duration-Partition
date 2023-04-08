@@ -6,10 +6,6 @@ package Music::Duration::Partition::Tutorial::Quickstart;
 
 =head1 Object Instantiation
 
-=head2 Use the defaults
-
-  my $mdp = Music::Duration::Partition->new;
-
 =head2 Attribute configuration
 
   my $mdp = Music::Duration::Partition->new(
