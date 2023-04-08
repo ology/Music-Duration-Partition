@@ -54,7 +54,7 @@ Retun a set of motifs.
 
   my @pitches = get_scale_MIDI('C', 4, 'major');
 
-=head2 Gather the Voices at Random
+=head2 Gather Voices at Random
 
   my @voices;
 
