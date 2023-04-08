@@ -161,7 +161,7 @@ and rest for the 4th. Also play a steady closed hi-hat simultaneously.
               $mdp->add_to_score($d->score, $motifs[1], \@notes2);
           }
 
-          $d->rest('qn');
+          $d->rest($d->quarter);
       }
   }
 
