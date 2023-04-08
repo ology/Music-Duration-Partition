@@ -50,7 +50,7 @@ Retun a set of motifs.
 
 =head1 Pitches/Notes/Voices
 
-=head2 Get some Pitches
+=head2 Get Some Pitches
 
   my @pitches = get_scale_MIDI('C', 4, 'major');
 
