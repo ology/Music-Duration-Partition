@@ -15,7 +15,7 @@ use constant TICKS => 96;
 
 =head1 SYNOPSIS
 
-  use Music::Duration::Partition;
+  use Music::Duration::Partition ();
 
   my $mdp = Music::Duration::Partition->new(
     size => 8,                  # 2 measures in 4/4 time
