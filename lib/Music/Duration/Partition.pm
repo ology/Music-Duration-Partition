@@ -394,6 +394,8 @@ __END__
 
 The F<eg/*> and F<t/01-methods.t> programs in this distribution.
 
+L<https://ology.github.io/music-duration-partition-tutorial/>
+
 L<List::Util>
 
 L<Math::Random::Discrete>
