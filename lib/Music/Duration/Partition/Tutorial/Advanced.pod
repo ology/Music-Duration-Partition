@@ -115,6 +115,8 @@ played in groups of 3.
 
   $score->n('wn', $scale[0]);
 
+  $score->write_score('weighted-grouped.mid');
+
 =head2 Figured Bass
 
 Play a an alternating, randomized bass-line of 2 motifs, for 3 beats
