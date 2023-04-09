@@ -2,25 +2,17 @@ package Music::Duration::Partition::Tutorial::Quickstart;
 
 =head1 Setup
 
-=head2 Import the MIDI::Util Module
+=head2 Import Modules
 
   use MIDI::Util qw(setup_score);
-
-=head2 Import the Music::Duration::Partition Module
-
   use Music::Duration::Partition ();
-
-=head2 Import the Musical Scales Module
-
   use Music::Scales qw(get_scale_MIDI);
 
 =head2 Get a Score
 
   my $score = setup_score();
 
-=head1 Object Instantiation
-
-=head2 Attribute configuration
+=head1 Instantiate an object
 
   my $mdp = Music::Duration::Partition->new(
       size      => 8,
