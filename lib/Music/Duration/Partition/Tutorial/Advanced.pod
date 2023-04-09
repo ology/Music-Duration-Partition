@@ -4,8 +4,8 @@ package Music::Duration::Partition::Tutorial::Advanced;
 
 =head2 Shuffling the Motif
 
-By shuffling a single generated motif, you can get the permutations of
-the durations.
+By shuffling a single generated motif, you can get permutations of the
+durations.
 
   use List::Util qw(shuffle);
   use MIDI::Util qw(setup_score);
