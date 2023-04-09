@@ -86,8 +86,8 @@ method.
 
 =head2 Weights and Grouping
 
-Triplet durations will be twice as likely to be chosen, and be played
-in groups of 3.
+Triplet durations will be twice as likely to be chosen, and will be
+played in groups of 3.
 
   use MIDI::Util qw(setup_score);
   use Music::Duration::Partition ();
