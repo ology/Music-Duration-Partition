@@ -164,7 +164,7 @@ sub _build_pool_select {
 
 The frequencies of pool item selection.
 
-The number of weights must equal the number of B<pool> entries.  The
+The number of weights must equal the number of B<pool> entries. The
 weights do not have to sum to 1 and can be any relative numbers.
 
 Default: Equal probability for each pool entry
@@ -193,7 +193,7 @@ The number of groups must equal the number of B<pool> entries.
 
 Default: C<0> for each pool entry
 
-* C<0> and C<1> mean the same thing for grouping.  So if needed, an
+* C<0> and C<1> mean the same thing for grouping. So if needed, an
 entry should have a value greater than one.
 
 =cut
@@ -232,7 +232,7 @@ sub _build__pool_group {
 
 Append any remaining duration ticks to the end of the motif.
 
-Default: C<1>  "Yes. Make it so."
+Default: C<1> "Yes. Make it so."
 
 =cut
 
