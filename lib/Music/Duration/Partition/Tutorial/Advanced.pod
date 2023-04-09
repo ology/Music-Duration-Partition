@@ -215,7 +215,7 @@ number of beats (i.e. 7 here) divided by 2.
       my $motif1 = $mdp->motif;
       my $motif2 = $mdp->motif;
 
-      my @pitches = get_scale_MIDI('C', 1, 'pminor');
+      my @pitches = get_scale_MIDI('C', 2, 'pminor');
       my @intervals = qw(-3 -2 -1 1 2 3);
       my $voice = Music::VoiceGen->new(
           pitches   => \@pitches,
