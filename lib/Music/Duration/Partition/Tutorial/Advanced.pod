@@ -71,7 +71,7 @@ method.
       $score->r('wn');
   }
 
-  $score->write_score('shuffled.mid');
+  $score->write_score('voss.mid');
 
   sub voss {
       my ($note, $octave, $named) = @_;
