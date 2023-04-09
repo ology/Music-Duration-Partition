@@ -221,16 +221,13 @@ number of beats (i.e. 7 here) divided by 2.
           pitches   => \@pitches,
           intervals => \@intervals,
       );
-      my @notes1 = map { $voice->rand } @$motif1;
-      my @notes2 = map { $voice->rand } @$motif2;
+      my @voices1 = map { $voice->rand } @$motif1;
 
       for my $n (1 .. $d->bars) {
-          for my $i (0 .. $#$motif1) {
-              $d->note($motif1->[$i], $n % 2 ? $notes1[$i] : $notes2[$i]);
-          }
-          for my $i (0 .. $#$motif2) {
-              $d->note($motif2->[$i], $n % 2 ? $notes1[$i] : $notes2[$i]);
-          }
+          $mdp->add_to_score($score, $motif1, \@voices1);
+
+          my @voices2 = map { $voice->rand } @$motif2;
+          $mdp->add_to_score($score, $motif2, \@voices2);
       }
 
       $d->note($d->whole, $pitches[0]);
