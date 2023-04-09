@@ -22,17 +22,17 @@ use constant TICKS => 96;
     pool => [qw(hn dqn qn en)], # made from these durations
   );
 
-  # the pool may also be weighted
+  # the pool may be optionally weighted
   $mdp = Music::Duration::Partition->new(
     size    => 100,
     pool    => [qw(d50  d25)],
-    weights => [   0.7, 0.3 ], # optional
+    weights => [   0.7, 0.3 ],
   );
 
   # the pool may also be grouped
   $mdp = Music::Duration::Partition->new(
     pool   => [qw(hn qn tqn)],
-    groups => [   1, 1, 3   ], # optional
+    groups => [   1, 1, 3   ],
   );
 
   my $motif  = $mdp->motif;  # list-ref of pool members
@@ -130,7 +130,8 @@ has _mrd => (
 
 sub _build__mrd {
     my ($self) = @_;
-    die 'Sizes of weights and pool not equal' unless @{ $self->weights } == @{ $self->pool };
+    die 'Sizes of weights and pool not equal'
+        unless @{ $self->weights } == @{ $self->pool };
     return Math::Random::Discrete->new($self->weights, $self->pool);
 }
 
