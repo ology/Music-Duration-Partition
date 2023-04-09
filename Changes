@@ -2,6 +2,7 @@ Revision history for Music-Duration-Partition
 
 {{$NEXT}}
     - Fix typo in quickstart tutorial.
+    - Add link to tutorial.
 
 0.0807 2023-04-08 14:54:14
     - Fix the name of the Advanced package.
