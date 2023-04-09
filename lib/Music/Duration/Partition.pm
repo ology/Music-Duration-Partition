@@ -38,15 +38,6 @@ use constant TICKS => 96;
   my $motif  = $mdp->motif;  # list-ref of pool members
   my @motifs = $mdp->motifs; # list of motifs
 
-  # midi usage:
-  # use List::Util qw(shuffle);
-  # use MIDI::Simple ();
-  # use Music::Scales qw(get_scale_MIDI);
-  # my $score = MIDI::Simple->new;
-  # my @notes = shuffle get_scale_MIDI('C', 4, 'major');
-  # $mdp->add_to_score($score, $motif, \@notes);
-  # $score->write_score('motif.mid');
-
 =head1 DESCRIPTION
 
 A C<Music::Duration::Partition> divides a musical duration given by
@@ -59,6 +50,10 @@ durations whose lengths are less than or equal to C<5> quarter notes.
 
 To generate a measure in C<5/8> time, set B<size> equal to C<2.5>
 (meaning 5 eighth notes).
+
+For MIDI usage, please see
+L<Music::Duration::Partition::Tutorial::Quickstart> and
+L<Music::Duration::Partition::Tutorial::Advanced>.
 
 =head1 ATTRIBUTES
 
