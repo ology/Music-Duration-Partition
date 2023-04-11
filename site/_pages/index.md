@@ -16,7 +16,7 @@
   <h3>Motif Generation</h3>
   <p>Create single or multiple rhythmic phrases ("motifs").</p>
   <h3>Score Interaction</h3>
-  <p>Add a motif and corresponding voices to a score.</p>
+  <p>Add motifs and corresponding voices to a score.</p>
 </div>
 
 ----
