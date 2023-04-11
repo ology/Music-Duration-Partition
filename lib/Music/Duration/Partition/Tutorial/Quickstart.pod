@@ -12,20 +12,20 @@ package Music::Duration::Partition::Tutorial::Quickstart;
 
   my $score = setup_score();
 
-=head1 Instantiate an object
+=head2 Construct an object
 
   my $mdp = Music::Duration::Partition->new(
-      size      => 8,
-      pool      => [qw(hn dqn qn en)],
-      weights   => [   1, 1,  2, 1  ],
-      groups    => [   1, 1,  1, 2  ],
-      remainder => 1,
-      verbose   => 1,
+      size    => 8, # 2 measures in 4/4
+      pool    => [qw(hn dqn qn en)],
+      verbose => 1,
   );
 
-=head1 Motifs
+More attributes may be set, but we'll leave that for the advanced
+tutorial.
 
-=head2 motif()
+=head1 Phrases
+
+=head2 A single motif()
 
   my $a_motif = $mdp->motif;
   # e.g. ['qn','en','en','hn','qn','qn','dqn','en']
@@ -35,22 +35,22 @@ or progression of a piece of music.
 
 For this module, a motif is an ordered set of rhythmic durations.
 
-=head2 motifs()
+=head2 Multiple motifs()
 
   my @motifs = $mdp->motifs(4);
 
 Return a set of motifs.
 
-=head1 Pitches == Notes == Voices
+=head1 Pitches and Voices
 
-=head2 Get Some Pitches
+=head2 Define pitches
 
   my @pitches = get_scale_MIDI('C', 4, 'major');
 
 Use the scale method to get a set of pitches in the key of C major, in
 the fourth octave.
 
-=head2 Gather Voices at Random
+=head2 Collect voices
 
   my @voices;
 
@@ -65,7 +65,7 @@ the fourth octave.
   }
 
 Here the voices to be played, are collected and correspond directly to
-motif entries.
+the motifs.
 
 =head1 Finish
 
@@ -96,6 +96,6 @@ L<VLC|https://www.videolan.org/vlc/|>.
 
   > timidity duration-partition.mid
 
-Easy!
+Voila!
 
 =cut
