@@ -233,4 +233,9 @@ number of beats (i.e. 7 here) divided by 2.
       $d->note($d->whole, $pitches[0]);
   }
 
+=head1 Quick-start
+
+Go back to the L<Music::Duration::Partition::Tutorial::Quickstart>
+tutorial.
+
 =cut

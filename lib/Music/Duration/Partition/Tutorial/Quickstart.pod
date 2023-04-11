@@ -98,4 +98,10 @@ L<VLC|https://www.videolan.org/vlc/|>.
 
 Voila!
 
+=head1 Advanced
+
+Next is the L<Music::Duration::Partition::Tutorial::Advanced>
+tutorial.
+
+
 =cut
