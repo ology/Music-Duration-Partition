@@ -1,5 +1,7 @@
 #/bin/sh
 
+# It is assumed that we are under the distribution/site directory
+
 rm -rf ../../music-duration-partition-tutorial/assets/
 rm -rf ../../music-duration-partition-tutorial/tutorial/
 
