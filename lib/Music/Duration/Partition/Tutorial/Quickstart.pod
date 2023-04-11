@@ -25,7 +25,7 @@ tutorial.
 
 =head1 Phrases
 
-=head2 A single motif()
+=head2 A single motif
 
   my $a_motif = $mdp->motif;
   # e.g. ['qn','en','en','hn','qn','qn','dqn','en']
@@ -35,7 +35,7 @@ or progression of a piece of music.
 
 For this module, a motif is an ordered set of rhythmic durations.
 
-=head2 Multiple motifs()
+=head2 Multiple motifs
 
   my @motifs = $mdp->motifs(4);
 
@@ -69,7 +69,7 @@ the motifs.
 
 =head1 Finish
 
-=head2 add_to_score()
+=head2 Add notes to the score
 
   for my $i (1 .. 4) {
       for my $n (0 .. $#motifs) {
