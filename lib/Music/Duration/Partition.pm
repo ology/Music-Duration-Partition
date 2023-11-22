@@ -35,12 +35,6 @@ use constant TICKS => 96;
     groups => [   1, 1, 3   ],
   );
 
-  # or constrained by phrase
-  $mdp = Music::Duration::Partition->new(
-    pool       => [qw(hn qn)],
-    constraint => [   10, 1  ],
-  );
-
   my $motif  = $mdp->motif;     # list-ref of pool members
   my @motifs = $mdp->motifs(4); # list of motifs
 
