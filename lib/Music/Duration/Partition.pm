@@ -41,8 +41,8 @@ use constant TICKS => 96;
     constraint => [   10, 1  ],
   );
 
-  my $motif  = $mdp->motif;  # list-ref of pool members
-  my @motifs = $mdp->motifs; # list of motifs
+  my $motif  = $mdp->motif;     # list-ref of pool members
+  my @motifs = $mdp->motifs(4); # list of motifs
 
 =head1 DESCRIPTION
 
