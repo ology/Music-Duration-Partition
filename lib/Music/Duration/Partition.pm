@@ -57,13 +57,6 @@ L<Music::Duration::Partition::Tutorial::Advanced>.
 
 =head1 ATTRIBUTES
 
-# hash reference of duration lengths (keyed by duration name).
-# Default: C<\%MIDI::Simple::Length>
-has _durations => (
-    is      => 'ro',
-    default => sub { return \%MIDI::Simple::Length },
-);
-
 =head2 size
 
   $size = $mdp->size;
@@ -246,6 +239,13 @@ Default: C<0>
 has verbose => (
     is      => 'ro',
     default => sub { return 0 },
+);
+
+# hash reference of duration lengths (keyed by duration name)
+# Default: \%MIDI::Simple::Length
+has _durations => (
+    is      => 'ro',
+    default => sub { return \%MIDI::Simple::Length },
 );
 
 =head1 METHODS
