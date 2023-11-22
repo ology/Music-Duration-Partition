@@ -57,17 +57,9 @@ L<Music::Duration::Partition::Tutorial::Advanced>.
 
 =head1 ATTRIBUTES
 
-=head2 durations
-
-  $durations = $mdp->durations;
-
-A hash reference of duration lengths (keyed by duration name).
-
-Default: C<\%MIDI::Simple::Length>
-
-=cut
-
-has durations => (
+# hash reference of duration lengths (keyed by duration name).
+# Default: C<\%MIDI::Simple::Length>
+has _durations => (
     is      => 'ro',
     default => sub { return \%MIDI::Simple::Length },
 );
@@ -381,7 +373,7 @@ sub _duration {
         $dura = $1;
     }
     else {
-        $dura = $self->durations->{$name};
+        $dura = $self->_durations->{$name};
     }
 
     return $dura;

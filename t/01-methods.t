@@ -24,7 +24,7 @@ subtest throws => sub {
 
 subtest defaults => sub {
     $mdp = new_ok 'Music::Duration::Partition';
-    ok ref($mdp->durations) eq 'HASH', 'durations';
+    ok ref($mdp->_durations) eq 'HASH', '_durations';
     is $mdp->size, 4, 'size';
     is_deeply $mdp->pool, [ keys %MIDI::Simple::Length ], 'pool';
 };
