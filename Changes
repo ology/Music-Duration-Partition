@@ -1,6 +1,7 @@
 Revision history for Music-Duration-Partition
 
 {{$NEXT}}
+    - Fix default motifs() method, numerical argument.
 
 0.0814 2023-04-10 23:55:17
     - Improve tutorials.
