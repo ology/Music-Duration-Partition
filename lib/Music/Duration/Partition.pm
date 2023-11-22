@@ -35,6 +35,12 @@ use constant TICKS => 96;
     groups => [   1, 1, 3   ],
   );
 
+  # or constrained by phrase
+  $mdp = Music::Duration::Partition->new(
+    pool       => [qw(hn qn)],
+    constraint => [   10, 1  ],
+  );
+
   my $motif  = $mdp->motif;  # list-ref of pool members
   my @motifs = $mdp->motifs; # list of motifs
 
@@ -341,14 +347,18 @@ sub motif {
 
 =head2 motifs
 
+  @motifs = $mdp->motifs;
   @motifs = $mdp->motifs($n);
 
 Return B<n> motifs.
+
+Default: C<n=1>
 
 =cut
 
 sub motifs {
     my ($self, $n) = @_;
+    $n ||= 1;
     my @motifs = map { $self->motif } 1 .. $n;
     return @motifs;
 }
