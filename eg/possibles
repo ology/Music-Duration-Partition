@@ -14,6 +14,7 @@ use List::Util qw(min max);
 use Music::Duration::Partition ();
 use Statistics::Basic qw(mean);
 
+my $notes  = shift || 4;
 my $max    = shift || 100;
 my $pool   = shift || 'hn qn ten';
 my $groups = shift || '1 2 3';
@@ -34,7 +35,7 @@ for my $n (1 .. $max) {
         for my $v (variations_with_repetition($p, scalar(@$pool))) {
             $i++;
             my $mdp = Music::Duration::Partition->new(
-                size    => 8,
+                size    => $notes,
                 pool    => $pool,
                 weights => $v,
                 groups  => $groups,
