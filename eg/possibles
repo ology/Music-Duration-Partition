@@ -1,4 +1,10 @@
 #!/usr/bin/env perl
+
+# Tally the number of possible motif lengths
+# Examples:
+# perl eg/possibles 1000 'hn qn'
+# perl eg/possibles 1000 'hn qn' '1 2'
+
 use strict;
 use warnings;
 
