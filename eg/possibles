@@ -8,34 +8,38 @@ use List::Util qw(min max);
 use Music::Duration::Partition ();
 use Statistics::Basic qw(mean);
 
+my $max = shift || 10;
+
 my %seen;
 my (@mins, @maxs, @means);
 
-for my $p (partitions([1,2,3])) {
-    next if $seen{ join ' ', $p }++;
+for my $n (1 .. $max) {
+    for my $p (partitions([1,2,3])) {
+        next if $seen{ join ' ', $p }++;
 
-    my $i = 0;
-    my @data;
+        my $i = 0;
+        my @data;
 
-    for my $v (variations_with_repetition($p, 3)) {
-        $i++;
-        my $mdp = Music::Duration::Partition->new(
-            size    => 8,
-            pool    => [qw(hn qn ten)],
-#            groups  => [   1, 2, 3   ],
-            weights => $v,
-        );
+        for my $v (variations_with_repetition($p, 3)) {
+            $i++;
+            my $mdp = Music::Duration::Partition->new(
+                size    => 8,
+                pool    => [qw(hn qn ten)],
+    #            groups  => [   1, 2, 3   ],
+                weights => $v,
+            );
 
-        my $motif = $mdp->motif;
-        push @data, scalar(@$motif);
-#        print $i, ' (', scalar(@$motif), '): ', ddc($motif);
+            my $motif = $mdp->motif;
+            push @data, scalar(@$motif);
+    #        print $i, ' (', scalar(@$motif), '): ', ddc($motif);
+        }
+
+        push @mins, min(@data);
+        push @maxs, max(@data);
+        push @means, mean(@data);
+        printf "Min: %.4f, Max: %.4f, Mean: %.4f\n",
+            min(@data), max(@data), mean(@data);
     }
-
-    push @mins, min(@data);
-    push @maxs, max(@data);
-    push @means, mean(@data);
-    printf "Min: %.4f, Max: %.4f, Mean: %.4f\n",
-        min(@data), max(@data), mean(@data);
 }
 
 printf "\nMean of mins: %.4f, Mean of maxes: %.4f, Mean of means: %.4f\n",
