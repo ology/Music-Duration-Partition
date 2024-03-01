@@ -42,5 +42,5 @@ for my $n (1 .. $max) {
     }
 }
 
-printf "\n%d iterations - Mean of mins: %.4f, Mean of maxus: %.4f, Mean of means: %.4f\n",
+printf "\n%d iterations - Mean of mins: %.4f, Mean of maxs: %.4f, Mean of means: %.4f\n",
     $max, mean(@mins), mean(@maxs), mean(@means);
