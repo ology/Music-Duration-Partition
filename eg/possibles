@@ -25,7 +25,7 @@ my %seen;
 my (@mins, @maxs, @means);
 
 for my $n (1 .. $max) {
-    for my $p (partitions([1,2,3])) {
+    for my $p (partitions([ 1 .. $#$pool ])) {
         next if $seen{ join ' ', $p }++;
 
         my $i = 0;
