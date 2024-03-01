@@ -28,15 +28,15 @@ for my $p (partitions([1,2,3])) {
 
         my $motif = $mdp->motif;
         push @data, scalar(@$motif);
-        print $i, ' (', scalar(@$motif), '): ', ddc($motif);
+#        print $i, ' (', scalar(@$motif), '): ', ddc($motif);
     }
 
     push @mins, min(@data);
     push @maxs, max(@data);
     push @means, mean(@data);
-    printf "\nMin: %f, Max: %f, Mean: %f\n",
+    printf "Min: %.4f, Max: %.4f, Mean: %.4f\n",
         min(@data), max(@data), mean(@data);
 }
 
-printf "\nMean of mins: %f, Mean of maxes: %f, Mean of means: %f\n",
+printf "\nMean of mins: %.4f, Mean of maxes: %.4f, Mean of means: %.4f\n",
     mean(@mins), mean(@maxs), mean(@means);
