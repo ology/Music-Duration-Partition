@@ -54,4 +54,10 @@ for my $n (1 .. $max) {
 }
 
 printf "\n%d iterations of a %d note pool: [%s] & groups: [%s]\nMeans of mins: %.4f, of maxs: %.4f, of means: %.4f\n",
-    $max, $notes, join(' ', @$pool), join(' ', @$groups), mean(@mins), mean(@maxs), mean(@means);
+    $max,
+    $notes,
+    join(' ', @$pool),
+    join(' ', @$groups),
+    mean(@mins),
+    mean(@maxs),
+    mean(@means);
