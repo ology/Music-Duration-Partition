@@ -1,0 +1,42 @@
+#!/usr/bin/env perl
+use strict;
+use warnings;
+
+use Data::Dumper::Compact qw(ddc);
+use Algorithm::Combinatorics qw(partitions variations_with_repetition);
+use List::Util qw(min max);
+use Music::Duration::Partition ();
+use Statistics::Basic qw(mean);
+
+my %seen;
+my (@mins, @maxs, @means);
+
+for my $p (partitions([1,2,3])) {
+    next if $seen{ join ' ', $p }++;
+
+    my $i = 0;
+    my @data;
+
+    for my $v (variations_with_repetition($p, 3)) {
+        $i++;
+        my $mdp = Music::Duration::Partition->new(
+            size    => 8,
+            pool    => [qw(hn qn ten)],
+#            groups  => [   1, 2, 3   ],
+            weights => $v,
+        );
+
+        my $motif = $mdp->motif;
+        push @data, scalar(@$motif);
+        print $i, ' (', scalar(@$motif), '): ', ddc($motif);
+    }
+
+    push @mins, min(@data);
+    push @maxs, max(@data);
+    push @means, mean(@data);
+    printf "\nMin: %f, Max: %f, Mean: %f\n",
+        min(@data), max(@data), mean(@data);
+}
+
+printf "\nMean of mins: %f, Mean of maxes: %f, Mean of means: %f\n",
+    mean(@mins), mean(@maxs), mean(@means);
