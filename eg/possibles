@@ -29,7 +29,7 @@ for my $n (1 .. $max) {
                 size    => 8,
                 pool    => $pool,
                 weights => $v,
-#                groups  => [   1, 2, 3   ],
+                groups  => [1,2,3],
             );
 
             my $motif = $mdp->motif;
