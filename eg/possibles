@@ -52,5 +52,5 @@ for my $n (1 .. $max) {
     }
 }
 
-printf "\n%d iterations of [%s]:\nMeans of mins: %.4f, of maxs: %.4f, of means: %.4f\n",
-    $max, join(' ', @$pool), mean(@mins), mean(@maxs), mean(@means);
+printf "\n%d iterations of weight: [%s] & groups: [%s]\nMeans of mins: %.4f, of maxs: %.4f, of means: %.4f\n",
+    $max, join(' ', @$pool), join(' ', @$groups), mean(@mins), mean(@maxs), mean(@means);
