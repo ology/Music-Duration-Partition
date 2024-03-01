@@ -34,13 +34,13 @@ for my $n (1 .. $max) {
 
         for my $v (variations_with_repetition($p, scalar(@$pool))) {
             $i++;
+
             my $mdp = Music::Duration::Partition->new(
                 size    => $notes,
                 pool    => $pool,
                 weights => $v,
                 groups  => $groups,
             );
-
             my $motif = $mdp->motif;
             push @data, scalar(@$motif);
 #            print $i, ' (', scalar(@$motif), '): ', ddc($motif);
