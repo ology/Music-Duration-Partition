@@ -14,12 +14,11 @@ use List::Util qw(min max);
 use Music::Duration::Partition ();
 use Statistics::Basic qw(mean);
 
-my $notes  = shift || 4;
-my $max    = shift || 100;
-my $pool   = shift || 'hn qn ten';
-my $groups = shift || '1 2 3';
-
-$pool   = [ split ' ', $pool ];
+my $notes = shift || 4;
+my $max   = shift || 100;
+my $pool  = shift || 'hn qn ten';
+$pool = [ split ' ', $pool ];
+my $groups = shift || join ' ', ((1) x @$pool);
 $groups = [ split ' ', $groups ];
 
 my %seen;
