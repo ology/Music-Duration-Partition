@@ -12,7 +12,7 @@ my $max    = shift || 100;
 my $pool   = shift || 'hn qn ten';
 my $groups = shift || '1 2 3';
 
-$pool = [ split ' ', $pool ];
+$pool   = [ split ' ', $pool ];
 $groups = [ split ' ', $groups ];
 
 my %seen;
