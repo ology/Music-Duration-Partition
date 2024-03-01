@@ -1,6 +1,7 @@
 Revision history for Music-Duration-Partition
 
 {{$NEXT}}
+    - Add the eg/possibles program to investigate the average length of different motifs.
 
 0.0817 2023-11-21 21:00:43
     - It is not necessary to know about the durations hash.
