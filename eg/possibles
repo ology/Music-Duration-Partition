@@ -2,7 +2,7 @@
 
 # Tally the number of possible motif lengths
 # Examples:
-# perl eg/possibles 4 1000 'hn qn'
+# perl eg/possibles 4 1000
 # perl eg/possibles 8 1000 'hn qn' '1 2'
 
 use strict;
