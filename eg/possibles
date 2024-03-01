@@ -8,7 +8,7 @@ use List::Util qw(min max);
 use Music::Duration::Partition ();
 use Statistics::Basic qw(mean);
 
-my $max = shift || 10;
+my $max = shift || 100;
 
 my %seen;
 my (@mins, @maxs, @means);
