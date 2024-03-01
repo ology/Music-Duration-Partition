@@ -45,5 +45,5 @@ for my $n (1 .. $max) {
     }
 }
 
-printf "\n%d iterations of [%s]:\nMean of mins: %.4f, Mean of maxs: %.4f, Mean of means: %.4f\n",
+printf "\n%d iterations of [%s]:\nMeans of mins: %.4f, of maxs: %.4f, of means: %.4f\n",
     $max, join(' ', @$pool), mean(@mins), mean(@maxs), mean(@means);
