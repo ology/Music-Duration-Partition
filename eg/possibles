@@ -34,7 +34,7 @@ for my $n (1 .. $max) {
 
             my $motif = $mdp->motif;
             push @data, scalar(@$motif);
-    #        print $i, ' (', scalar(@$motif), '): ', ddc($motif);
+#            print $i, ' (', scalar(@$motif), '): ', ddc($motif);
         }
 
         push @mins, min(@data);
@@ -45,5 +45,5 @@ for my $n (1 .. $max) {
     }
 }
 
-printf "\n%d iterations - Mean of mins: %.4f, Mean of maxs: %.4f, Mean of means: %.4f\n",
-    $max, mean(@mins), mean(@maxs), mean(@means);
+printf "\n%d iterations of [%s]:\nMean of mins: %.4f, Mean of maxs: %.4f, Mean of means: %.4f\n",
+    $max, join(' ', @$pool), mean(@mins), mean(@maxs), mean(@means);
