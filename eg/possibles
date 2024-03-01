@@ -37,10 +37,10 @@ for my $n (1 .. $max) {
         push @mins, min(@data);
         push @maxs, max(@data);
         push @means, mean(@data);
-        printf "Min: %.4f, Max: %.4f, Mean: %.4f\n",
-            min(@data), max(@data), mean(@data);
+#        printf "Min: %.4f, Max: %.4f, Mean: %.4f\n",
+#            min(@data), max(@data), mean(@data);
     }
 }
 
-printf "\nMean of mins: %.4f, Mean of maxes: %.4f, Mean of means: %.4f\n",
-    mean(@mins), mean(@maxs), mean(@means);
+printf "\n%d iterations - Mean of mins: %.4f, Mean of maxus: %.4f, Mean of means: %.4f\n",
+    $max, mean(@mins), mean(@maxs), mean(@means);
