@@ -8,7 +8,10 @@ use List::Util qw(min max);
 use Music::Duration::Partition ();
 use Statistics::Basic qw(mean);
 
-my $max = shift || 100;
+my $max   = shift || 100;
+my $pool = shift || 'hn qn ten';
+
+$pool = [ split ' ', $pool ];
 
 my %seen;
 my (@mins, @maxs, @means);
@@ -24,9 +27,9 @@ for my $n (1 .. $max) {
             $i++;
             my $mdp = Music::Duration::Partition->new(
                 size    => 8,
-                pool    => [qw(hn qn ten)],
-    #            groups  => [   1, 2, 3   ],
+                pool    => $pool,
                 weights => $v,
+#                groups  => [   1, 2, 3   ],
             );
 
             my $motif = $mdp->motif;
