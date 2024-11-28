@@ -1,6 +1,7 @@
 Revision history for Music-Duration-Partition
 
 {{$NEXT}}
+    - Use Music::Durations for 32nd, 64th, and 128th duration pool values and remainders.
 
 0.0821 2024-11-28 11:46:32
     - Implement the "abbreviation" attribute, for remainders.
