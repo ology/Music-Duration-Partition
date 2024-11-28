@@ -8,8 +8,7 @@ use Moo;
 use strictures 2;
 use List::Util qw(min);
 use Math::Random::Discrete ();
-use MIDI::Simple ();
-use MIDI::Util qw(reverse_dump);
+use MIDI::Util qw(midi_dump reverse_dump);
 use Music::Duration;
 use namespace::clean;
 
@@ -81,7 +80,7 @@ has size => (
 The list of possible note durations to use in constructing a rhythmic
 motif.
 
-Default: C<[ keys %MIDI::Simple::Length ]> (wn, hn, qn, ...)
+Default: C<[wn, hn, qn, ..., xn, yn, zn]> (see L<Music::Duration>)
 
 This can be either a list of duration names, or duration values,
 specified with a preceding C<d>.  A mixture of both is not well
@@ -92,7 +91,7 @@ defined. YMMV
 has pool => (
     is      => 'ro',
     isa     => sub { die 'Empty pool not allowed' unless ref( $_[0] ) eq 'ARRAY' && @{ $_[0] } > 0 },
-    default => sub { return [ keys %MIDI::Simple::Length ] },
+    default => sub { return [ keys %{ midi_dump('length') } ] },
 );
 
 has _min_size => (
@@ -261,10 +260,9 @@ has verbose => (
 );
 
 # hash reference of duration lengths (keyed by duration name)
-# Default: \%MIDI::Simple::Length
 has _durations => (
     is      => 'ro',
-    default => sub { return \%MIDI::Simple::Length },
+    default => sub { return midi_dump('length') },
 );
 
 =head1 METHODS
@@ -419,8 +417,10 @@ L<List::Util>
 
 L<Math::Random::Discrete>
 
-L<MIDI::Simple>
-
 L<Moo>
+
+L<MIDI::Util>
+
+L<Music::Duration>
 
 =cut
