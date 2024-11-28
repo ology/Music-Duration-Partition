@@ -7,6 +7,7 @@ our $VERSION = '0.0820';
 use Moo;
 use strictures 2;
 use MIDI::Simple ();
+use MIDI::Util qw(reverse_dump);
 use Math::Random::Discrete ();
 use List::Util qw(min);
 use namespace::clean;
@@ -226,6 +227,23 @@ has remainder => (
     default => sub { return 1 },
 );
 
+=head2 abbreviation
+
+  $abbreviation = $mdp->abbreviation;
+
+Any remaining duration is checked against the L<MIDI::Simple::Length>
+hash to see if it is included. If so, use that abbreviation, instead
+of a C<d> value.
+
+Default: C<1> "Yes. Make it so."
+
+=cut
+
+has abbreviation => (
+    is      => 'ro',
+    default => sub { return 1 },
+);
+
 =head2 verbose
 
   $verbose = $mdp->verbose;
@@ -308,8 +326,16 @@ sub motif {
         if (sprintf( $format, $diff ) < sprintf( $format, $self->_min_size )) {
             warn "WARNING: Leftover duration: $diff\n"
                 if $self->verbose;
-            push @$motif, 'd' . sprintf('%.0f', TICKS * $diff)
-                if $self->remainder && sprintf($format, TICKS * $diff) > 0;
+            my $tick_diff = TICKS * $diff;
+            my $dura = 'd' . sprintf('%.0f', $tick_diff);
+            if ($self->abbreviation) {
+                my $length = reverse_dump('length');
+                my %length = map { TICKS * $_ => $length->{$_} } keys %$length;
+                $dura = $length{$tick_diff}
+                    if exists $length{$tick_diff};
+            }
+            push @$motif, $dura
+                if $self->remainder && sprintf($format, $tick_diff) > 0;
             last;
         }
 
