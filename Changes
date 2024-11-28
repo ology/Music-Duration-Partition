@@ -1,6 +1,8 @@
 Revision history for Music-Duration-Partition
 
 {{$NEXT}}
+
+0.0823 2024-11-28 13:52:26
     - Cleaned redundant code.
     - Fixed pool test, given the addition of M::D.
 
