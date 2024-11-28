@@ -2,7 +2,7 @@ package Music::Duration::Partition;
 
 # ABSTRACT: Partition a musical duration into rhythmic phrases
 
-our $VERSION = '0.0822';
+our $VERSION = '0.0823';
 
 use Moo;
 use strictures 2;
