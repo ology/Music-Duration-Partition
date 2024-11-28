@@ -2,7 +2,7 @@ Revision history for Music-Duration-Partition
 
 {{$NEXT}}
     - Cleaned redundant code.
-    - Fixed pool test.
+    - Fixed pool test, given the addition of M::D.
 
 0.0822 2024-11-28 12:20:55
     - Use Music::Durations for 32nd, 64th, and 128th duration pool values and remainders.
