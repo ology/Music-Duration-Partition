@@ -6,10 +6,11 @@ our $VERSION = '0.0821';
 
 use Moo;
 use strictures 2;
+use List::Util qw(min);
+use Math::Random::Discrete ();
 use MIDI::Simple ();
 use MIDI::Util qw(reverse_dump);
-use Math::Random::Discrete ();
-use List::Util qw(min);
+use Music::Duration;
 use namespace::clean;
 
 use constant TICKS => 96;
