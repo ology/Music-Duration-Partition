@@ -70,7 +70,7 @@ Default: C<4>
 
 has size => (
     is      => 'ro',
-    default => sub { return 4 },
+    default => sub { 4 },
 );
 
 =head2 pool
@@ -91,7 +91,7 @@ defined. YMMV
 has pool => (
     is      => 'ro',
     isa     => sub { die 'Empty pool not allowed' unless ref( $_[0] ) eq 'ARRAY' && @{ $_[0] } > 0 },
-    default => sub { return [ keys %{ midi_dump('length') } ] },
+    default => sub { [ keys %{ midi_dump('length') } ] },
 );
 
 has _min_size => (
@@ -102,9 +102,7 @@ has _min_size => (
 
 sub _build__min_size {
     my ($self) = @_;
-
     my @sizes = map { $self->_duration($_) } @{ $self->pool };
-
     return min(@sizes);
 }
 
@@ -141,7 +139,7 @@ has pool_select => (
 
 sub _build_pool_select {
     my ($self) = @_;
-    return sub { return $self->_mrd->rand };
+    return sub { $self->_mrd->rand };
 };
 
 =head2 weights
@@ -203,12 +201,10 @@ has _pool_group => (
 
 sub _build__pool_group {
     my ($self) = @_;
-
     my %pool_group;
     for my $i (0 .. @{ $self->pool } - 1) {
         $pool_group{ $self->pool->[$i] } = $self->groups->[$i];
     }
-
     return \%pool_group;
 }
 
@@ -224,7 +220,7 @@ Default: C<1> "Yes. Make it so."
 
 has remainder => (
     is      => 'ro',
-    default => sub { return 1 },
+    default => sub { 1 },
 );
 
 =head2 abbreviation
@@ -241,7 +237,7 @@ Default: C<1> "Yes. Make it so."
 
 has abbreviation => (
     is      => 'ro',
-    default => sub { return 1 },
+    default => sub { 1 },
 );
 
 =head2 verbose
@@ -256,13 +252,13 @@ Default: C<0>
 
 has verbose => (
     is      => 'ro',
-    default => sub { return 0 },
+    default => sub { 0 },
 );
 
 # hash reference of duration lengths (keyed by duration name)
 has _durations => (
     is      => 'ro',
-    default => sub { return midi_dump('length') },
+    default => sub { midi_dump('length') },
 );
 
 =head1 METHODS
