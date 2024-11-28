@@ -2,8 +2,6 @@
 use strict;
 use warnings;
 
-# Use local libraries
-
 use Data::Dumper::Compact 'ddc';
 use MIDI::Drummer::Tiny;
 use Music::Duration::Partition;

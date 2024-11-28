@@ -2,8 +2,6 @@
 use strict;
 use warnings;
 
-# Use local libraries
-
 use List::Util qw/ shuffle /;
 use MIDI::Drummer::Tiny;
 use MIDI::Util qw(setup_score);
