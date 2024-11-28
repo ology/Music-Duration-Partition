@@ -33,13 +33,16 @@ subtest defaults => sub {
 subtest motif => sub {
     subtest pool => sub {
         $mdp = new_ok 'Music::Duration::Partition' => [ pool => [qw/ wn /] ];
-        is_deeply $mdp->motif, ['wn'], 'motif';
+        is_deeply $mdp->motif, ['wn'], 'wn motif';
 
         $mdp = new_ok 'Music::Duration::Partition' => [ pool => [qw/ qn /] ];
-        is_deeply $mdp->motif, [ ('qn') x 4 ], 'motif';
+        is_deeply $mdp->motif, [ ('qn') x 4 ], 'qn motif';
 
         $mdp = new_ok 'Music::Duration::Partition' => [ pool => [qw/ tqn /] ];
-        is_deeply $mdp->motif, [ ('tqn') x 6 ], 'motif';
+        is_deeply $mdp->motif, [ ('tqn') x 6 ], 'tqn motif';
+
+        $mdp = new_ok 'Music::Duration::Partition' => [ pool => [qw/ xn /] ];
+        is_deeply $mdp->motif, [ ('xn') x 32 ], 'xn motif';
     };
 
     subtest size => sub {
