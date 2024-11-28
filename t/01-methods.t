@@ -81,10 +81,10 @@ subtest motif => sub {
     };
 
     subtest remainder => sub {
-        $mdp = new_ok 'Music::Duration::Partition' => [ pool => [qw/ dhn /], abbreviation => 0 ];
-        is_deeply $mdp->motif, [qw/ dhn d96 /], 'remainder';
         $mdp = new_ok 'Music::Duration::Partition' => [ pool => [qw/ dhn /] ];
         is_deeply $mdp->motif, [qw/ dhn qn /], 'remainder';
+        $mdp = new_ok 'Music::Duration::Partition' => [ pool => [qw/ dhn /], abbreviation => 0 ];
+        is_deeply $mdp->motif, [qw/ dhn d96 /], 'remainder';
     };
 };
 
